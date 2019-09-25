@@ -1,0 +1,197 @@
+@font-face {
+    font-family: 'Noteworthy Light';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Noteworthy Light'), url('/fonts/Noteworthy-Lt.woff') format('woff');
+}
+/* ubuntu-mono-regular - latin */
+@font-face {
+    font-family: 'Ubuntu Mono';
+    font-style: normal;
+    font-weight: 400;
+    src: url('/fonts/ubuntu/ubuntu-mono-v8-latin-regular.eot'); /* IE9 Compat Modes */
+    src: local('Ubuntu Mono'), local('UbuntuMono-Regular'),
+    url('/fonts/ubuntu/ubuntu-mono-v8-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('/fonts/ubuntu/ubuntu-mono-v8-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+    url('/fonts/ubuntu/ubuntu-mono-v8-latin-regular.woff') format('woff'), /* Modern Browsers */
+    url('/fonts/ubuntu/ubuntu-mono-v8-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+    url('/fonts/ubuntu/ubuntu-mono-v8-latin-regular.svg#UbuntuMono') format('svg'); /* Legacy iOS */
+}
+
+body {font-family: 'Lato';}
+.body-posts {font-family: 'Lato';}
+code, pre {font-family: 'Ubuntu Mono' !important; font-size:1.2rem;}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    font-family: 'Montserrat';
+}
+
+a { color: whitesmoke;
+    text-decoration: none;
+}
+
+
+a:focus, a:hover, a:active {
+    text-decoration: none;
+    color: gray;
+}
+
+.post a { color:gray;
+    text-decoration: none;
+}
+
+.post a:focus, .post a:hover, .post a:active {
+    text-decoration: none;
+    color: #d0d0d0;
+}
+/* yellow circles pattern */
+.bg-primary {
+    background-color: #242424 !important;
+}
+
+/* Dark bg */
+.bg-secondary {background-color: #2C3E50 !important;}
+/* beautiful text */
+.post, .text-primary {color: #003366 !important;}
+
+/* Dark text */
+.text-secondary {color:gray!important;}
+
+.about-text {color: whitesmoke}
+
+.main-font {
+    font-family: 'Montserrat';
+    font-weight: 700;
+    font-size: 0.5em;
+}
+
+/*******************************
+ ******** HR
+ *******************************/
+hr.star-light,
+hr.star-dark,
+hr.star-dark-pr {
+    max-width: 15rem;
+    padding: 0;
+    text-align: center;
+    border: none;
+    border-top: solid 0.25rem;
+    margin-top: 2.5rem;
+    margin-bottom: 2.5rem;
+}
+
+hr.star-light:after,
+hr.star-dark:after,
+hr.star-dark-pr:after {
+    position: relative;
+    top: -.8em;
+    display: inline-block;
+    padding: 0 0.25em;
+    content: '\f1fd';
+    font-family: FontAwesome;
+    font-size: 2em;
+}
+
+hr.star-light {border-color: #fff;}
+
+hr.star-light:after {color: #fff;}
+
+hr.star-dark,
+hr.star-dark-pr{
+    border-color: #2C3E50;
+}
+
+hr.star-dark:after {
+    color: #2C3E50;
+    background-color: white;
+}
+
+hr.star-dark-pr:after {
+    color: #2C3E50;
+    background-color: #26e4bb !important;
+    background-image: url("/images/circles.png");
+    background-repeat: repeat;
+}
+
+/*******************************
+ ******** Buttons
+ *******************************/
+
+.btn {border-width: 2px;}
+.btn-xl {
+    padding: 1rem 1.75rem;
+    font-size: 1.25rem;
+}
+
+.btn-social {
+    width: 2.25rem;
+    height: 2.25rem;
+    font-size: 1.25rem;
+    line-height: 1rem;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.btn-social:hover, .btn-social:focus, .btn-social:active {
+    color: #fff;
+    background: lightgray;
+    border-color: gray;
+}
+
+.btn-primary {
+    background-color: lightgray;
+    border-color: gray;
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active {
+    background-color: lightgray;;
+    border-color:gray;
+}
+
+.btn-secondary {
+    background-color: #2C3E50;
+    border-color: #2C3E50;
+}
+
+.btn-secondary:hover, .btn-secondary:focus, .btn-secondary:active {
+    background-color: #1a252f;
+    border-color: #1a252f;
+}
+
+.btn-github:hover, .btn-github:focus, .btn-github:active, .btn-tag:hover, .btn-tag:focus, .btn-tag:active {
+    color: #fff;
+    background: lightgray;
+    border-color: lightgray;
+}
+
+.btn-tag {
+    background-color: #2C3E50;
+    border-color: #2C3E50;
+    color: #fff;
+    font-size: 0.75rem;
+}
+
+.p404 {
+    min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
+    min-height: 100vh; /* These two lines are counted as one :-)       */
+
+    display: flex;
+    align-items: center;
+}
+.p404-img {max-height: 15vh;}
+
+/* Code */
+code {
+    padding: 0% 0.5%;
+    color:#2C3E50 !important;
+    background-color:#FAFFC3 !important;
+}
+
+pre > code {background-color: #2C3E50 !important; color: #fff !important; }
+
+.image--cover {
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center right;
+  }
