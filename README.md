@@ -6,7 +6,7 @@ permalink: /index.html
 
 Epicallan web page:
 
-* [epicallan.github.io](https://epicallan.github.io/)
+* [lukwagoallan.com](https://lukwagoallan.com)
 
 Disclaimer: This blog is a modification and clone of the [kowainik blog](https://github.com/kowainik/kowainik.github.io)
 

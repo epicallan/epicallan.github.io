@@ -7,12 +7,17 @@ cabal new-exec site rebuild
 # Create deploy environment inside of .deploy directory
 mkdir .deploy
 cd .deploy
+
 git init
 git remote add origin git@github.com:epicallan/epicallan.github.io.git
 git pull -r origin master
 
 # Add built site files
 rsync -a ../_site/ .
+
+cp ../README.md README.md
+cp ../CNAME CNAME
+
 git add .
 git commit -m "$1"
 git push origin master
