@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"
+    xmlns:dc="http://purl.org/dc/elements/1.1/">
+    <channel>
+        <title>Lukwago Allan's Blog</title>
+        <link>https://epicallan.github.io</link>
+        <description><![CDATA[A blog about functional programming anything software engineering related that catches my fancy]]></description>
+        <atom:link href="https://epicallan.github.io/rss.xml" rel="self"
+                   type="application/rss+xml" />
+        <lastBuildDate>Tue, 24 Sep 2019 00:00:00 UT</lastBuildDate>
+        <item>
+    <title>Unifying Servant server error responses</title>
+    <link>https://epicallan.github.io/posts/unifying-servant-server-error-responses.html</link>
+    <description><![CDATA[Accompanying blog post to Servant Errors wai-middleware Haskell library]]></description>
+    <pubDate>Tue, 24 Sep 2019 00:00:00 UT</pubDate>
+    <guid>https://epicallan.github.io/posts/unifying-servant-server-error-responses.html</guid>
+    <dc:creator>Lukwago Allan</dc:creator>
+</item>
+
+    </channel>
+</rss>

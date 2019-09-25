@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <title>Lukwago Allan's Blog</title>
+    <link href="https://epicallan.github.io/atom.xml" rel="self" />
+    <link href="https://epicallan.github.io" />
+    <id>https://epicallan.github.io/atom.xml</id>
+    <author>
+        <name>Lukwago Allan</name>
+        <email>epicallan.al@gmail.com</email>
+    </author>
+    <updated>2019-09-24T00:00:00Z</updated>
+    <entry>
+    <title>Unifying Servant server error responses</title>
+    <link href="https://epicallan.github.io/posts/unifying-servant-server-error-responses.html" />
+    <id>https://epicallan.github.io/posts/unifying-servant-server-error-responses.html</id>
+    <published>2019-09-24T00:00:00Z</published>
+    <updated>2019-09-24T00:00:00Z</updated>
+    <summary type="html"><![CDATA[Accompanying blog post to Servant Errors wai-middleware Haskell library]]></summary>
+</entry>
+
+</feed>
