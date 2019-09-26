@@ -8,7 +8,7 @@ useShortName: yes
 
 ## Intro
 
-The blog post is a discussion about exception handling in Servant and the `servant-errors wai middleware` Haskell library, its purpose and implementation details.
+The blog post is a discussion about exceptions in Servant and the `servant-errors wai middleware` Haskell library, its purpose and implementation details.
 
 Find library source code in the link below.
 
