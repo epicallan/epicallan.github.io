@@ -46,7 +46,7 @@ ____________________________________________
 
 ### Servant server error categories
 
-Servant server errors can be thought to belong in any of these categories;
+Servant server errors can be thought to belong in three categories.
 
 - A. Internal Exceptions thrown by Servant during API route resolution, e.g. Request body decode failures.
 - B. `ServerError` Exceptions thrown within API route handlers by a user.
