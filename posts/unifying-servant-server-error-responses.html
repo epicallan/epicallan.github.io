@@ -58,8 +58,8 @@
                             <ul>
 <li><a href="#intro">Intro</a></li>
 <li><a href="#motivation">Motivation</a></li>
-<li><a href="#servant-server-errors-background">Servant server Errors Background</a><ul>
-<li><a href="#servant-server-errors-categories">Servant server Errors categories</a></li>
+<li><a href="#servant-server-exceptions">Servant server Exceptions</a><ul>
+<li><a href="#servant-server-error-categories">Servant server error categories</a></li>
 <li><a href="#servant-server-error-handling">Servant server error handling</a></li>
 <li><a href="#solution-with-servant-errors-middleware-library">Solution with Servant-Errors middleware library</a></li>
 </ul></li>
@@ -144,8 +144,11 @@
 <span id="cb1-10"><a href="#cb1-10"></a>     <span class="co">-- with 'error' and 'status' strings as error object field keys</span></span>
 <span id="cb1-11"><a href="#cb1-11"></a>     <span class="co">-- note they can be changed to any other preferred strings.</span></span>
 <span id="cb1-12"><a href="#cb1-12"></a>     <span class="op">$</span> serve proxyApi handlers</span></code></pre></div>
-<h2 id="servant-server-errors-background">Servant server Errors Background<a href="#servant-server-errors-background" class="anchor">🔗</a></h2>
-<h3 id="servant-server-errors-categories">Servant server Errors categories<a href="#servant-server-errors-categories" class="anchor">🔗</a></h3>
+<p><br /></p>
+<h2 id="servant-server-exceptions">Servant server Exceptions<a href="#servant-server-exceptions" class="anchor">🔗</a></h2>
+<hr />
+<p><br /></p>
+<h3 id="servant-server-error-categories">Servant server error categories<a href="#servant-server-error-categories" class="anchor">🔗</a></h3>
 <p>Servant server errors can be thought to belong in any of these categories;</p>
 <ul>
 <li>A. Internal Exceptions thrown by Servant during API route resolution, e.g. Request body decode failures.</li>
