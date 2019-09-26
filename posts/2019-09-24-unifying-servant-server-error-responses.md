@@ -36,17 +36,21 @@ main = run 8001
      -- note they can be changed to any other preferred strings.
      $ serve proxyApi handlers
 ```
+<br />
 
-## Servant server Errors Background
+## Servant server Exceptions
 
-### Servant server Errors categories
+____________________________________________
+
+<br />
+
+### Servant server error categories
 
 Servant server errors can be thought to belong in any of these categories;
 
 - A. Internal Exceptions thrown by Servant during API route resolution, e.g. Request body decode failures.
 - B. `ServerError` Exceptions thrown within API route handlers by a user.
 - C. IO asynchronous and impure synchronous Exceptions either thrown by non-total functions e.g. `head` or external IO failures such as DB failures.
-
 
 ### Servant server error handling
 
