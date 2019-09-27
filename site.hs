@@ -1,14 +1,15 @@
-{-# LANGUAGE TupleSections    #-}
 {-# LANGUAGE TypeApplications #-}
 
-import Hakyll (Compiler, Context, Identifier, Item (..), Pattern, Rules,
-               applyAsTemplate, buildTags, compile, compressCssCompiler, constField,
-               copyFileCompiler, create, customRoute, dateField, defaultContext,
-               defaultHakyllReaderOptions, defaultHakyllWriterOptions, field, fromCapture,
-               functionField, getResourceString, getTags, hakyll, idRoute, listField,
-               loadAll, loadAndApplyTemplate, lookupString, makeItem, match, metadataRoute,
-               pandocCompilerWithTransformM, recentFirst, relativizeUrls, renderPandocWith, route,
-               saveSnapshot, setExtension, tagsRules, templateBodyCompiler, toFilePath, (.||.))
+import Prelude hiding (fromList)
+
+import Hakyll (Compiler, Context, Identifier, Item (..), Pattern, Rules, applyAsTemplate, buildTags,
+               compile, compressCssCompiler, constField, copyFileCompiler, create, customRoute,
+               dateField, defaultContext, defaultHakyllReaderOptions, defaultHakyllWriterOptions,
+               field, fromCapture, fromList, functionField, getResourceString, getTags, hakyll,
+               idRoute, listField, loadAll, loadAndApplyTemplate, lookupString, makeItem, match,
+               metadataRoute, pandocCompilerWithTransformM, recentFirst, relativizeUrls,
+               renderPandocWith, route, saveSnapshot, setExtension, tagsRules, templateBodyCompiler,
+               toFilePath, (.||.))
 import Hakyll.ShortcutLinks (applyAllShortcuts)
 import Hakyll.Web.Feed (renderAtom, renderRss)
 import System.FilePath (replaceExtension)
@@ -26,6 +27,9 @@ import qualified Text.Pandoc.Walk as Pandoc.Walk
 
 main :: IO ()
 main = mainHakyll
+
+root :: String
+root = "https://lukwagoallan.com"
 
 mainHakyll :: IO ()
 mainHakyll = hakyll $ do
@@ -83,6 +87,8 @@ mainHakyll = hakyll $ do
     feedCompiler "atom.xml" renderAtom
     feedCompiler "rss.xml"  renderRss
 
+    create ["sitemap.xml"] createSitemap
+
     -- Render the 404 page, we don't relativize URL's here.
     create ["404.html"] $ do
         route idRoute
@@ -118,6 +124,19 @@ compilePosts title page pat = do
             >>= loadAndApplyTemplate "templates/posts-default.html" ctx
             >>= relativizeUrls
 
+createSitemap :: Rules ()
+createSitemap = do
+  route idRoute
+  compile $ do
+    posts <- recentFirst =<< loadAll "posts/*"
+    tagPages <- loadAll "tags/*"
+    singlePages <- loadAll (fromList ["index.html", "posts.html"])
+    let pages = posts <> tagPages <> singlePages
+        sitemapCtx = constField "root" root
+                   <> listField "pages" postCtx (return pages)
+    makeItem @String ""
+      >>= loadAndApplyTemplate "templates/sitemap.xml" sitemapCtx
+
 -- | Removes the @.html@ suffix in the post URLs.
 stripExtension :: Context a
 stripExtension = functionField "stripExtension" $ \args _ -> case args of
@@ -149,6 +168,7 @@ addAnchors =
 postCtx :: Context String
 postCtx = stripExtension
     <> dateField "date" "%B %e, %Y"
+    <> constField "root" root
     <> defaultContext
 
 postCtxWithTags :: [String] -> Context String

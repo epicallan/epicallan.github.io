@@ -1,7 +1,7 @@
 ---
 title: Unifying Servant server error responses
 author: Lukwago Allan
-tags: Haskell, library, Servant, Server
+tags: Haskell, library, Servant
 description: Accompanying blog post to Servant Errors wai-middleware Haskell library
 useShortName: yes
 ---
@@ -27,7 +27,7 @@ With `servant-errors`  library, you get a single interface to structure and enco
 main :: IO ()
 main = run 8001 (serve proxyApi handlers)
 
--- | With servant-errors as error processing middleware, it's of this form.
+-- | With 'errorMw' from servant-errors library as an error processing middleware
 main :: IO ()
 main = run 8001
      $ errorMw @JSON @["error", "status"]
@@ -41,6 +41,9 @@ main = run 8001
 ## Servant server Exceptions
 
 ____________________________________________
+
+The following sections describe errors one may encounter in a Servant application, their differences and handling
+by Servant.
 
 <br />
 
