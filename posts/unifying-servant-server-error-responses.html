@@ -70,6 +70,16 @@
 
             </div>
 
+            <div class="row coolFont pt-md-3 justify-content-center">
+                
+                    <span class="tag-block"> <a class="btn btn-outline-dark btn-tag" href="../tags/Haskell">Haskell</a> </span>
+                
+                    <span class="tag-block"> <a class="btn btn-outline-dark btn-tag" href="../tags/library">library</a> </span>
+                
+                    <span class="tag-block"> <a class="btn btn-outline-dark btn-tag" href="../tags/Servant">Servant</a> </span>
+                
+            </div>
+
             <div class="pt-md-3 about-text">
                 <div class="row justify-content-center pt-md-2">
                     <div class="col-md-12">
@@ -136,7 +146,7 @@
 <span id="cb1-2"><a href="#cb1-2"></a><span class="ot">main ::</span> <span class="dt">IO</span> ()</span>
 <span id="cb1-3"><a href="#cb1-3"></a>main <span class="ot">=</span> run <span class="dv">8001</span> (serve proxyApi handlers)</span>
 <span id="cb1-4"><a href="#cb1-4"></a></span>
-<span id="cb1-5"><a href="#cb1-5"></a><span class="co">-- | With servant-errors as error processing middleware, it's of this form.</span></span>
+<span id="cb1-5"><a href="#cb1-5"></a><span class="co">-- | With 'errorMw' from servant-errors library as an error processing middleware</span></span>
 <span id="cb1-6"><a href="#cb1-6"></a><span class="ot">main ::</span> <span class="dt">IO</span> ()</span>
 <span id="cb1-7"><a href="#cb1-7"></a>main <span class="ot">=</span> run <span class="dv">8001</span></span>
 <span id="cb1-8"><a href="#cb1-8"></a>     <span class="op">$</span> errorMw <span class="op">@</span><span class="dt">JSON</span> <span class="op">@</span>[<span class="st">&quot;error&quot;</span>, <span class="st">&quot;status&quot;</span>]</span>
@@ -147,6 +157,7 @@
 <p><br /></p>
 <h2 id="servant-server-exceptions">Servant server Exceptions<a href="#servant-server-exceptions" class="anchor">🔗</a></h2>
 <hr />
+<p>The following sections describe errors one may encounter in a Servant application, their differences and handling by Servant.</p>
 <p><br /></p>
 <h3 id="servant-server-error-categories">Servant server error categories<a href="#servant-server-error-categories" class="anchor">🔗</a></h3>
 <p>Servant server errors can be thought to belong in three categories.</p>
