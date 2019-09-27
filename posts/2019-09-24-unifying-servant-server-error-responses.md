@@ -117,3 +117,7 @@ If a user submits a wrong request body during an HTTP request, he receives a JSO
 ```
 
 Persons Matt also has a good read on [Servant error exceptions](https://www.parsonsmatt.org/2017/06/21/exceptional_servant_handling.html) have a read on his blog
+
+## Acknowledgment
+
+Many thanks to [Dmitrii Kovanikov](https://kodimensional.dev/) for having reviewed my blog post and given me detailed, helpful suggestions.
