@@ -5,6 +5,7 @@ set -eo pipefail
 cabal new-exec site rebuild
 
 # Create deploy environment inside of .deploy directory
+rm -rf .deploy
 mkdir .deploy
 cd .deploy
 
