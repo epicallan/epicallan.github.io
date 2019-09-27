@@ -131,8 +131,8 @@ createSitemap = do
     posts <- recentFirst =<< loadAll "posts/*"
     tagPages <- loadAll "tags/*"
     singlePages <- loadAll (fromList ["index.html", "posts.html"])
-    let pages = posts <> tagPages <> singlePages
-        sitemapCtx = constField "root" root
+    let pages      = posts <> tagPages <> singlePages
+        sitemapCtx =  constField "root" root
                    <> listField "pages" postCtx (return pages)
     makeItem @String ""
       >>= loadAndApplyTemplate "templates/sitemap.xml" sitemapCtx
