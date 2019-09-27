@@ -120,4 +120,4 @@ Persons Matt also has a good read on [Servant error exceptions](https://www.pars
 
 ## Acknowledgment
 
-Many thanks to [Dmitrii Kovanikov](https://kodimensional.dev/) for having reviewed my blog post and given me detailed, helpful suggestions.
+Many thanks to [Dmitrii Kovanikov](https://kodimensional.dev/) for having reviewed my blog post and given me detailed and helpful suggestions.
