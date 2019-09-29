@@ -52,7 +52,6 @@ cabal.project.local
 # Emacs
 *#
 .dir-locals.el
-TAGS
 
 # other
 .DS_Store
