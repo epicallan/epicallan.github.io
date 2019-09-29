@@ -20,6 +20,7 @@ cp ../README.md README.md
 cp ../CNAME CNAME
 
 git add .
+git add --force tags/*
 git commit -m "$1"
 git push origin master
 
