@@ -1,7 +1,7 @@
     <!-- Header -->
-      <nav class="navbar navbar-inverse navbar-fixed-left leftmenu bg-primary">
+      <nav class="navbar navbar-inverse navbar-fixed-left leftmenu bg-primary" style="flex-direction: column">
 
-            <div class="toc-zone pt-md-5">
+            <div class="toc-zone pt-md-5 d-none d-lg-block">
                 <div class="row">
                     <div class="col-md-12">
                         <h5 class="about-text">Contents</h5>
@@ -14,9 +14,11 @@
             </div>
 
             <div class ="row coolFont pt-md-3 justify-content-center">
-                $for(tagsList)$
-                    <span class="tag-block"> <a class="btn btn-outline-dark btn-tag" href="../tags/$tag$">$tag$</a> </span>
-                $endfor$
+                <div class="col-md-12">
+                    $for(tagsList)$
+                        <span class="tag-block"  style="display:inline-block; padding-bottom: 0.2em"> <a class="btn btn-outline-dark btn-tag" href="../tags/$tag$">$tag$</a> </span>
+                    $endfor$
+                </div>
             </div>
 
             <div class="pt-md-3 about-text">
@@ -31,13 +33,13 @@
                     </div>
                 </div>
 
-                <div class="row justify-content-center pt-md-2">
+                <div class="row justify-content-center pt-md-2 d-none d-md-block">
                     <div class="col-md-12">
-                        <h6 class="text-center text-uppercase">Around the web</h6>
+                        <h6 class="text-uppercase">Around the web</h6>
                     </div>
                 </div>
 
-                <div class="row justify-content-center pt-md-3 text-center">
+                <div class="row justify-content-center pt-md-2 d-none d-md-block">
                     <div class="col-md-12" >
                             <ul class="list-inline mb-0 mx-auto">
 
