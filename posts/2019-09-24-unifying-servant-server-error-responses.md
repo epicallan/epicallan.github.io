@@ -59,7 +59,7 @@ Servant server errors can be thought to belong in three categories.
 
 Errors of `category A and B` have servant framework handling support, while Errors of `category C` seep through the Servant framework layer to the underlying server running your servant application such as the warp-wai server.
 
-The warp-wai server layer, unfortunately, doesn't have a way of passing `category C` errors to middleware for translation into a `custom error response` as one would expect. It instead offers ways in which we can customise the `warp server Settings` such that one can configure how to log and create server responses for `category C` errors
+The warp-wai server layer, unfortunately, doesn't have a way of passing `category C` errors to middleware for translation into a `custom error response` as one would expect. It instead offers ways in which we can customise the `warp server Settings` such that one can configure how to log and create server responses for `category C` errors.
 
 The `warp-wai` server's stance is errors of `category C` must be handled at a framework level while Servant maintains that users should write handlers safe from such errors and possibly log and process them them within a warp-wai server settings if preferred.
 
@@ -83,7 +83,7 @@ So this leaves us with a warp-wai server middleware solution, that can help us c
 The [servant-errors library](https://github.com/epicallan/servant-errors) does precisely this. The logic is to customise responses with status codes higher than 200 while lacking HTTP content types into user preferred format.
 
 A pleasant outcome of this approach is that it can subsequently format user thrown exceptions within servant route handlers such that they match the internal Servant error responses when they lack an HTTP content-type.
-The use of this library can, therefore, enable us to achieve uniform HTTP server error responses across an entire servant application.
+The use of this library can, therefore, enable us to achieve uniform HTTP server error responses across an entire servant application for errors of `category A and B`.
 
 Minimal Complete Sample usage example
 
