@@ -53,15 +53,15 @@ Servant server errors can be thought to belong in three categories.
 
 - A. Internal Exceptions thrown by Servant during API route resolution, e.g. Request body decode failures.
 - B. `ServerError` Exceptions thrown within API route handlers by a user.
-- C. IO asynchronous and impure synchronous Exceptions either thrown by non-total functions e.g. `head` or external IO failures such as DB failures.
+- C. IO asynchronous and impure synchronous Exceptions either thrown by non-total functions e.g. `head` or external IO failures such as DB connection failures.
 
 ### Servant server error handling
 
 Errors of `category A and B` have servant framework handling support, while Errors of `category C` seep through the Servant framework layer to the underlying server running your servant application such as the warp-wai server.
 
-The warp-wai server layer, unfortunately, doesn't have a way of passing `category C` errors to middleware for translation into an `HTTP 500 error response` as one would expect. `Wai` instead has a `setOnException` function which can be useful for logging purposes.
+The warp-wai server layer, unfortunately, doesn't have a way of passing `category C` errors to middleware for translation into a `custom error response` as one would expect. It instead offers ways in which we can customise the `warp server Settings` such that one can configure how to log and create server responses for `category C` errors
 
-The `warp-wai` server's stance is errors of `category C` must be handled at a framework level while Servant maintains that users should write handlers safe from such errors and possibly log them within a warp-wai server `setOnException` function if preferred.
+The `warp-wai` server's stance is errors of `category C` must be handled at a framework level while Servant maintains that users should write handlers safe from such errors and possibly log and process them them within a warp-wai server settings if preferred.
 
 One can read more [on this GitHub issue](https://github.com/haskell-servant/servant/issues/779) and [this](https://github.com/haskell-servant/servant/issues/1192).
 However, the point of this article is not to debate the hows of dealing with errors of `category C` but rather to focus on HTTP server response structure of errors of `category A and B`.
