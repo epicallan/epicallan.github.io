@@ -45,8 +45,6 @@ ____________________________________________
 The following sections describe errors one may encounter in a Servant application, their differences and handling
 by Servant.
 
-<br />
-
 ### Servant server error categories
 
 Servant server errors can be thought to belong in three categories.
