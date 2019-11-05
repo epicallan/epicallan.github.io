@@ -40,7 +40,7 @@ Hreq shares a lot of similarities and differences with servant client, so it's i
 
 - In Hreq, API Request component arguments are provided to API functions through a Heterogeneous list. While in Servant client, arguments are provided to newly auto-created API functions.
 
-- Hreq is still a young project, and it doesn't yet have a good streaming story as Servant-client.
+- Hreq is still a young project, and it doesn't have a good streaming story yet in comparison to Servant-client.
 
 ## Usage Example
 
@@ -75,7 +75,7 @@ createUser :: RunHttp m => User -> m User
 createUser user = hreq @(JsonBody User :> PostJson User) (user :. Empty)
 
 getUserByName :: RunHttp m => String -> m User
-getUserByName userName = hreq @(Capture "name" String :> GetJson User) (userName  :. Empty)
+getUserByName userName = hreq @(Capture String :> GetJson User) (userName  :. Empty)
 
 ```
 
