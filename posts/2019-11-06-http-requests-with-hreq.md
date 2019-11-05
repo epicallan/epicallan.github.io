@@ -26,7 +26,7 @@ Hreq, on the other hand, was designed for a more general-purpose use. Its approa
 
 ## Comparison between Hreq and Servant client
 
-Hreq shares a lot of similarities and differences with servant client so it's imperative that I list some of the prominent ones.
+Hreq shares a lot of similarities and differences with servant client, so it's imperative I list some of the prominent ones.
 
 - Hreq's API structures are more Kind restricted, enabling more type correctness and more straightforward formulation of type-level functions. A drawback of this approach is that Hreq is less extensible than servant-client.
 
