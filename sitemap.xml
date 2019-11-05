@@ -7,6 +7,13 @@
   </url>
 
   <url>
+    <loc>https://lukwagoallan.com/posts/http-requests-with-hreq.html</loc>
+    <lastmod>November  6, 2019</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
     <loc>https://lukwagoallan.com/posts/unifying-servant-server-error-responses.html</loc>
     <lastmod>September 24, 2019</lastmod>
     <changefreq>weekly</changefreq>
@@ -14,7 +21,21 @@
   </url>
 
   <url>
+    <loc>https://lukwagoallan.com/tags/HTTP-Client.html</loc>
+    <lastmod></lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
     <loc>https://lukwagoallan.com/tags/Haskell.html</loc>
+    <lastmod></lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://lukwagoallan.com/tags/Network.html</loc>
     <lastmod></lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
