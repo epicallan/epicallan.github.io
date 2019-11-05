@@ -2,7 +2,7 @@
 title: HTTP Requests with Hreq
 author: Lukwago Allan
 tags: Haskell, Network, HTTP-Client, library
-description: An easy to use type driven Http client Haskell library inspired by Servant-Client.
+description: An easy to use type-driven Http client Haskell library inspired by Servant-Client.
 useShortName: yes
 ---
 
@@ -22,7 +22,7 @@ Hreq was motivated by the simplicity and ease of use of [Req](https://github.com
 
 The Servant client library was first and foremost designed as a solution to generate API client functions for pre-defined Servant server API structures. So it shines when used in that context. However, this doesn't mean it doesn't work well in isolation; it certainly does albeit at the cost of some boiler-plate.
 
-Hreq, on the other hand, was designed for a more general-purpose use. Its approach is thus similar to the one found in the Req library or some of the HTTP client libraries in mainstream programming languages. Hreq's interface is thus more straightforward and less verbose while maintaining good type-level expressiveness and ease of use.
+Hreq, on the other hand, was designed for more general-purpose use. Its approach is thus similar to the one found in the Req library or some of the HTTP client libraries in mainstream programming languages. Hreq's interface is, therefore, more straightforward and less verbose while maintaining good type-level expressiveness and ease of use.
 
 ## Comparison between Hreq and Servant client
 
@@ -30,7 +30,7 @@ Hreq shares a lot of similarities and differences with servant client, so it's i
 
 - Hreq's API structures are more Kind restricted, enabling more type correctness and more straightforward formulation of type-level functions. A drawback of this approach is that Hreq is less extensible than servant-client.
 
-- Hreq provides a default HTTP client manager such that one doesn't have to think about manager configuration. This is in stark contrast with Servant-Client where you have to provide one. It's also possible to over-ride the provided default manager.
+- Hreq provides a default HTTP client manager such that one doesn't have to think about manager configuration. This is in stark contrast with Servant-Client where you have to offer one. It's also possible to over-ride the provided default manager.
 
 - Hreq provides type synonyms for common API type combinators, therefore, making API endpoint definitions much shorter for some cases.
 
@@ -81,4 +81,4 @@ getUserByName userName = hreq @(Capture String :> GetJson User) (userName  :. Em
 
 ## Conclusion
 
-I hope you get to enjoy hreq. Please reach out through the [project's github issue tracker](https://github.com/epicallan/hreq) if you come across any issues. Happy coding.
+I hope you get to enjoy hreq. Please reach out through the [project's GitHub issue tracker](https://github.com/epicallan/hreq) if you come across any issues. Happy coding.
