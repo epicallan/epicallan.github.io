@@ -10,7 +10,7 @@ useShortName: yes
 
 Hreq is a high-level easy to use type-driven HTTP client library inspired by Servant-Client. Hreq provides an alternative approach to type-safe construction and interpretation of API endpoints for Http client requests.
 
-Hreq should feel very familiar to anyone who has worked with Servant-server or Servant-Client while feeling more lightweight and minimal.
+Hreq should feel very familiar to anyone who has worked with Servant-Server or Servant-Client while feeling more lightweight and minimal.
 
 Find library source code in the link below.
 
