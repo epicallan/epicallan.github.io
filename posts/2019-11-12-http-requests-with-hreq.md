@@ -36,7 +36,7 @@ The library core functionality is provided by these 2 type classes:
 
 ## Hreq and Servant client feature comparison
 
-Hreq shares a lot of similarities and differences with servant client, so it's imperative I list some of the prominent ones.
+Hreq has a lot of similarities and differences with servant client, so it's imperative I list some of the prominent ones.
 
 - Hreq's API structures are more Kind restricted, enabling more type correctness and more straightforward formulation of type-level functions. A drawback of this approach is that Hreq is less extensible than servant-client.
 
@@ -114,8 +114,8 @@ getAllUsers = hreq @("all" :> QueryFlag "old" :> GetJson [User]) Empty
 
 ### Running api endpoint functions
 
-With in the main function; the API endpoint functions run within the`Hreq` monad.
-The Hreq monad has an instance of the `RunClient` class and `MonadIO` class.
+In the main function; the API endpoint functions run within the`Hreq` monad.
+The Hreq monad is an instance of the `RunClient` class and `MonadIO` class.
 
 ```haskell
 main :: IO ()
