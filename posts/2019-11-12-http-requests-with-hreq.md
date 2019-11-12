@@ -81,7 +81,7 @@ baseUrl = HttpUrl "example.com" "user"
 
 ### Simple Get request
 
-Making a Get request obtaining a `User` by a specified `user-name` at <http://example.com/user/:userName>
+Make a Get request obtaining a `User` by a specified `user-name` at <http://example.com/user/:userName>
 
 ```haskell
 getUserByName :: RunClient m => Text -> m User
