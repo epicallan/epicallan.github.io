@@ -30,9 +30,9 @@ One of Hreq's key features is the flexibility of the API endpoint definitions an
 
 The library core functionality is provided by these two type classes:
 
-- The `HasRequest` class which interprets API endpoints into a `Request` data structure.
+- The [HasRequest](http://hackage.haskell.org/package/hreq-core-0.1.0.0/docs/Hreq-Core-Client-HasRequest.html) class which interprets API endpoints into a `Request` data structure.
 
-- The `HasResponse` class which declares the desired output from an HTTP response.
+- The [HasResponse](http://hackage.haskell.org/package/hreq-core-0.1.0.0/docs/Hreq-Core-Client-HasResponse.html) class which declares the desired output from an HTTP response.
 
 ## Hreq and Servant client feature comparison
 
@@ -58,7 +58,7 @@ Hreq has a lot of similarities and differences with servant client, so it's impe
 
 ## Usage Example
 
-The same code sample can be found in the [Example module](https://github.com/epicallan/hreq/blob/master/example/Main.hs) on Github with the necessary language extensions.
+The same code sample can be found in the [Example module](https://github.com/epicallan/hreq/blob/master/hreq-client/example/Main.hs) on Github with the necessary language extensions.
 
 Assume we are making requests against a hypothetical HTTP service providing a JSON user management API.
 
@@ -134,7 +134,7 @@ main = runHreq baseUrl $ do
 
 ### More Examples
 
-More examples can be found on `hackage` and within `library tests`.
+More examples can be found on [hackage](http://hackage.haskell.org/package/hreq-client-0.1.0.0/docs/Hreq-Client.html) and within [library tests](https://github.com/epicallan/hreq/tree/master/hreq-client/test/Hreq).
 An example showcasing streaming support via conduit can be found within the streaming package's [readme](https://github.com/epicallan/hreq/blob/master/hreq-conduit/README.md) file.
 
 ## Conclusion
