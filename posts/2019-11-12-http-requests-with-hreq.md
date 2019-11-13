@@ -99,8 +99,8 @@ The API type definition in this instance demands that a heterogeneous list conta
 Make a Post request with Json User data for a request body returning a Json User response at <http://example.com/user>
 
 ```haskell
-createUser :: RunClient m => User -> m ()
-createUser user = hreq @(JsonBody User :> EmptyResponse POST) (user :. Empty)
+createUser :: RunClient m => User -> m User
+createUser user = hreq @(JsonBody User :> PostJson User) (user :. Empty)
 ```
 
 ### Get Request with QueryFlag
