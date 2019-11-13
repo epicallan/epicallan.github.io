@@ -28,11 +28,11 @@ Hreq, on the other hand, is designed for more general-purpose use. Its approach 
 
 One of Hreq's key features is the flexibility of the API endpoint definitions and ease of interpretation. These features are made possible thanks to the ability to emulate dependent type like language features within modern Haskell via type families, GADTs and other advanced language extensions.
 
-The library core functionality is provided by these 2 type classes:
+The library core functionality is provided by these two type classes:
 
 - The `HasRequest` class which interprets API endpoints into a `Request` data structure.
 
-- The `HasResponse` class which declares the desired output from an HTTP request.
+- The `HasResponse` class which declares the desired output from an HTTP response.
 
 ## Hreq and Servant client feature comparison
 
@@ -88,7 +88,7 @@ getUserByName :: RunClient m => Text -> m User
 getUserByName userName = hreq @(Capture Text :> GetJson User) (userName :. Empty)
 ```
 
-The `Capture Text :> GetJson User` type with in `getUserByName` is an API endpoint type definition.
+The `Capture Text :> GetJson User` type within `getUserByName` is an API endpoint type definition.
 
 The API type definition in this instance demands that a heterogeneous list containing a `Text` value is supplied to the `hreq` function.
 
@@ -105,7 +105,7 @@ createUser user = hreq @(JsonBody User :> EmptyResponse POST) (user :. Empty)
 
 ### Get Request with QueryFlag
 
-Make a Get requesting obtaining all users at API endpoint <http://example.com/user/all?old>
+Make a Get request obtaining all users at API endpoint <http://example.com/user/all?old>
 
 ```haskell
 getAllUsers :: RunClient m => m [User]
@@ -140,3 +140,7 @@ An example showcasing streaming support via conduit can be found within the stre
 ## Conclusion
 
 I hope you get to enjoy hreq. Please reach out through the [project's GitHub issue tracker](https://github.com/epicallan/hreq) if you come across any issues. Happy coding.
+
+## Acknowledgment
+
+Many thanks to [Dmitrii Kovanikov](https://kodimensional.dev/) and [Alvin](https://twitter.com/alvinkatojr) for having reviewed my blog post and given me helpful suggestions.
