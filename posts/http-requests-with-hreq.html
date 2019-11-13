@@ -78,7 +78,7 @@
 
             </div>
 
-            <div class="row coolFont pt-md-3 justify-content-center">
+            <div class="row coolFont pt-md-0 justify-content-center">
                 <div class="col-md-12">
                     
                         <span class="tag-block" style="display:inline-block; padding-bottom: 0.2em"> <a class="btn btn-outline-dark btn-tag" href="../tags/Haskell">Haskell</a> </span>
@@ -159,8 +159,8 @@
 <p>One of Hreq’s key features is the flexibility of the API endpoint definitions and ease of interpretation. These features are made possible thanks to the ability to emulate dependent type like language features within modern Haskell via type families, GADTs and other advanced language extensions.</p>
 <p>The library core functionality is provided by these two type classes:</p>
 <ul>
-<li><p>The <code>HasRequest</code> class which interprets API endpoints into a <code>Request</code> data structure.</p></li>
-<li><p>The <code>HasResponse</code> class which declares the desired output from an HTTP response.</p></li>
+<li><p>The <a href="http://hackage.haskell.org/package/hreq-core-0.1.0.0/docs/Hreq-Core-Client-HasRequest.html">HasRequest</a> class which interprets API endpoints into a <code>Request</code> data structure.</p></li>
+<li><p>The <a href="http://hackage.haskell.org/package/hreq-core-0.1.0.0/docs/Hreq-Core-Client-HasResponse.html">HasResponse</a> class which declares the desired output from an HTTP response.</p></li>
 </ul>
 <h2 id="hreq-and-servant-client-feature-comparison">Hreq and Servant client feature comparison<a href="#hreq-and-servant-client-feature-comparison" class="anchor">🔗</a></h2>
 <p>Hreq has a lot of similarities and differences with servant client, so it’s imperative I list some of the prominent ones.</p>
@@ -176,7 +176,7 @@
 <li><p>Hreq provides pattern synonyms that make the creation of <code>BaseUrls</code> more concise and less error-prone. For example, the <code>HttpDomain</code> and <code>HttpsDomain</code> synonyms create base URLs from a provided <code>domain</code>. The <code>HttpUrl</code> and <code>HttpsUrl</code> create base URLs from a provided <code>domain</code> and <code>path</code>. If one needs to provide a custom <code>port</code> number, they can fall back to directly using the <code>BaseUrl</code> constructor.</p></li>
 </ul>
 <h2 id="usage-example">Usage Example<a href="#usage-example" class="anchor">🔗</a></h2>
-<p>The same code sample can be found in the <a href="https://github.com/epicallan/hreq/blob/master/example/Main.hs">Example module</a> on Github with the necessary language extensions.</p>
+<p>The same code sample can be found in the <a href="https://github.com/epicallan/hreq/blob/master/hreq-client/example/Main.hs">Example module</a> on Github with the necessary language extensions.</p>
 <p>Assume we are making requests against a hypothetical HTTP service providing a JSON user management API.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">import</span> <span class="dt">Data.Aeson</span> (<span class="dt">FromJSON</span>, <span class="dt">ToJSON</span>)</span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="kw">import</span> <span class="dt">Data.Text</span> (<span class="dt">Text</span>)</span>
@@ -222,7 +222,7 @@
 <span id="cb5-11"><a href="#cb5-11"></a><span class="ot">   newUser ::</span> <span class="dt">User</span></span>
 <span id="cb5-12"><a href="#cb5-12"></a>   newUser <span class="ot">=</span> <span class="dt">User</span> <span class="st">&quot;allan&quot;</span> <span class="dv">12</span></span></code></pre></div>
 <h3 id="more-examples">More Examples<a href="#more-examples" class="anchor">🔗</a></h3>
-<p>More examples can be found on <code>hackage</code> and within <code>library tests</code>. An example showcasing streaming support via conduit can be found within the streaming package’s <a href="https://github.com/epicallan/hreq/blob/master/hreq-conduit/README.md">readme</a> file.</p>
+<p>More examples can be found on <a href="http://hackage.haskell.org/package/hreq-client-0.1.0.0/docs/Hreq-Client.html">hackage</a> and within <a href="https://github.com/epicallan/hreq/tree/master/hreq-client/test/Hreq">library tests</a>. An example showcasing streaming support via conduit can be found within the streaming package’s <a href="https://github.com/epicallan/hreq/blob/master/hreq-conduit/README.md">readme</a> file.</p>
 <h2 id="conclusion">Conclusion<a href="#conclusion" class="anchor">🔗</a></h2>
 <p>I hope you get to enjoy hreq. Please reach out through the <a href="https://github.com/epicallan/hreq">project’s GitHub issue tracker</a> if you come across any issues. Happy coding.</p>
 <h2 id="acknowledgment">Acknowledgment<a href="#acknowledgment" class="anchor">🔗</a></h2>
