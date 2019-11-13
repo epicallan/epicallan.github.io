@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-148776727-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-148776727-1');
+    </script>
+    <title>HTTP Requests with Hreq</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Lukwago Allan - HTTP Requests with Hreq">
+    <meta name="keywords" content="Haskell, Functional progarmming, FP">
+    <meta name="author" content="Lukwago Allan" />
+
+    <!-- Twitter cards -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@epicallanl" />
+    <meta name="twitter:creator" content="@epicallanl" />
+    <meta property="twitter:title" content="Lukwago Allan - HTTP Requests with Hreq" />
+    <meta name="twitter:description" content="An easy to use type-driven Http client Haskell library inspired by Servant-Client." />
+    <meta name="twitter:image:src" content="https://lukwagoallan.com/images/favicon_io/android-chrome-192x192.png" />
+
+    <meta property="og:title" content="Lukwago Allan - HTTP Requests with Hreq" />
+    <meta property="og:description" content="An easy to use type-driven Http client Haskell library inspired by Servant-Client." />
+    <meta property="og:site_name" content="Lukwago Allan" />
+    <meta property="og:image" content="https://lukwagoallan.com/images/favicon_io/android-chrome-192x192.png" />
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/dracula.min.css" />
+    <!-- Custom fonts for this template -->
+    <link href="../css/font-awesome.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Lato" />
+    <!-- Custom styles for this template -->
+    <link href="../css/default.css" rel="stylesheet">
+    <link href="../css/post.css" rel="stylesheet">
+  </head>
+
+  <body class="body-posts">
+
+          <!-- Header -->
+      <nav class="navbar navbar-inverse navbar-fixed-left leftmenu bg-primary" style="flex-direction: column">
+
+            <div class="toc-zone pt-md-5 d-none d-lg-block">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h5 class="about-text">Contents</h5>
+                        <div class="toc pt-md-2" id="main">
+                            <ul>
+<li><a href="#intro">Intro</a></li>
+<li><a href="#motivation">Motivation</a></li>
+<li><a href="#implementation">Implementation</a></li>
+<li><a href="#hreq-and-servant-client-feature-comparison">Hreq and Servant client feature comparison</a></li>
+<li><a href="#usage-example">Usage Example</a><ul>
+<li><a href="#simple-get-request">Simple Get request</a></li>
+<li><a href="#simple-post-request">Simple Post request</a></li>
+<li><a href="#get-request-with-queryflag">Get Request with QueryFlag</a></li>
+<li><a href="#running-api-endpoint-functions">Running api endpoint functions</a></li>
+<li><a href="#more-examples">More Examples</a></li>
+</ul></li>
+<li><a href="#conclusion">Conclusion</a></li>
+<li><a href="#acknowledgment">Acknowledgment</a></li>
+</ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row coolFont pt-md-3 justify-content-center">
+                <div class="col-md-12">
+                    
+                        <span class="tag-block" style="display:inline-block; padding-bottom: 0.2em"> <a class="btn btn-outline-dark btn-tag" href="../tags/Haskell">Haskell</a> </span>
+                    
+                        <span class="tag-block" style="display:inline-block; padding-bottom: 0.2em"> <a class="btn btn-outline-dark btn-tag" href="../tags/Network">Network</a> </span>
+                    
+                        <span class="tag-block" style="display:inline-block; padding-bottom: 0.2em"> <a class="btn btn-outline-dark btn-tag" href="../tags/HTTP-Client">HTTP-Client</a> </span>
+                    
+                        <span class="tag-block" style="display:inline-block; padding-bottom: 0.2em"> <a class="btn btn-outline-dark btn-tag" href="../tags/library">library</a> </span>
+                    
+                </div>
+            </div>
+
+            <div class="pt-md-3 about-text">
+                <div class="row justify-content-center pt-md-2">
+                    <div class="col-md-12">
+                        <h6><a href="../posts"> Posts </a></h6>
+                    </div>
+                </div>
+                <div class="row justify-content-center pt-md-2">
+                    <div class="col-md-12">
+                        <h6><a href="../"> About me </a></h6>
+                    </div>
+                </div>
+
+                <div class="row justify-content-center pt-md-2 d-none d-md-block">
+                    <div class="col-md-12">
+                        <h6 class="text-uppercase">Around the web</h6>
+                    </div>
+                </div>
+
+                <div class="row justify-content-center pt-md-2 d-none d-md-block">
+                    <div class="col-md-12">
+                            <ul class="list-inline mb-0 mx-auto">
+
+                                <li class="list-inline-item my-auto">
+                                    <a class="btn btn-outline-light btn-social text-center rounded-circle" href="https://github.com/epicallan" target="_blank">
+                                    <i class="fa fa-fw fa-github"></i>
+                                    </a>
+                                </li>
+
+                                <li class="list-inline-item my-auto">
+                                    <a class="btn btn-outline-light btn-social text-center rounded-circle" href="https://twitter.com/epicallan" target="_blank">
+                                    <i class="fa fa-fw fa-twitter"></i>
+                                    </a>
+                                </li>
+
+                                <li class="list-inline-item my-auto">
+                                    <a class="btn btn-outline-light btn-social text-center rounded-circle" href="https://www.linkedin.com/in/allan-lukwago" target="_blank">
+                                        <i class="fa fa-fw fa-linkedin"></i>
+                                        </a>
+                                <li class="list-inline-item my-auto">
+
+
+                                </ul>
+                    </div>
+                </div>
+            </div>
+      </nav>
+      <div class="container info">
+          <h2 class="text-center text-uppercase">HTTP Requests with Hreq</h2>
+          <div class="content">
+          <div class="row post">
+              <div class="col-12 post-body">
+              <p class="lead">
+                  <h2 id="intro">Intro<a href="#intro" class="anchor">🔗</a></h2>
+<p>Hreq is a high-level easy to use type-driven HTTP client library inspired by Servant-Client. Hreq provides an alternative approach to type-safe construction and interpretation of API endpoints for Http client requests.</p>
+<p>Hreq should feel very familiar to anyone who has worked with Servant-Server or Servant-Client while feeling more lightweight and minimal.</p>
+<p>Find library source code in the link below.</p>
+<ul>
+<li><a href="https://github.com/epicallan/hreq">epicallan/hreq</a></li>
+</ul>
+<h2 id="motivation">Motivation<a href="#motivation" class="anchor">🔗</a></h2>
+<p>Hreq was motivated by the simplicity and ease of use of <a href="https://github.com/mrkkrp/req">Req</a> and the type-driven elegance of <a href="https://github.com/haskell-servant/servant/tree/master/servant-client">Servant-Client</a>. I envisioned Hreq as the best possible compromise of both worlds.</p>
+<p>The Servant client library was first and foremost designed as a solution to generate API client functions for pre-defined Servant server API structures. So it shines when used in that context. However, this doesn’t mean it doesn’t work well in isolation; it certainly does albeit at the cost of some boiler-plate.</p>
+<p>Hreq, on the other hand, is designed for more general-purpose use. Its approach is thus similar to the one found in the Req library or some of the HTTP client libraries in mainstream programming languages. Hreq’s interface is, therefore, more straightforward and less verbose while maintaining good type-level expressiveness and ease of use.</p>
+<h2 id="implementation">Implementation<a href="#implementation" class="anchor">🔗</a></h2>
+<p>One of Hreq’s key features is the flexibility of the API endpoint definitions and ease of interpretation. These features are made possible thanks to the ability to emulate dependent type like language features within modern Haskell via type families, GADTs and other advanced language extensions.</p>
+<p>The library core functionality is provided by these two type classes:</p>
+<ul>
+<li><p>The <code>HasRequest</code> class which interprets API endpoints into a <code>Request</code> data structure.</p></li>
+<li><p>The <code>HasResponse</code> class which declares the desired output from an HTTP response.</p></li>
+</ul>
+<h2 id="hreq-and-servant-client-feature-comparison">Hreq and Servant client feature comparison<a href="#hreq-and-servant-client-feature-comparison" class="anchor">🔗</a></h2>
+<p>Hreq has a lot of similarities and differences with servant client, so it’s imperative I list some of the prominent ones.</p>
+<ul>
+<li><p>Hreq’s API structures are more Kind restricted, enabling more type correctness and more straightforward formulation of type-level functions. A drawback of this approach is that Hreq is less extensible than servant-client.</p></li>
+<li><p>Hreq provides a default HTTP client manager such that one doesn’t have to think about manager configuration. This is in stark contrast with Servant-Client where you have to offer one. It’s also possible to over-ride the provided default manager.</p></li>
+<li><p>Hreq provides type synonyms for common API type combinators, therefore, making API endpoint definitions much shorter for some cases.</p></li>
+<li><p>In Hreq API types are used directly within API functions via Type Application. While in servant-client, API endpoint types are used to create API querying functions. API endpoint types hence have a more first-class treatment in Hreq than in Servant client.</p></li>
+<li><p>In Servant-client, valid responses must have a status code between 200 and 300. In Hreq one can configure a range for valid status codes via the HTTP config with 200 to 300 as the default.</p></li>
+<li><p>In Hreq, API Request component arguments are provided to API functions through a Heterogeneous list. While in Servant client, arguments are provided to newly auto-created API functions.</p></li>
+<li><p>Hreq has an inbuilt retry mechanism via the <a href="https://hackage.haskell.org/package/retry-0.8.0.0/docs/Control-Retry.html">Retry</a> package that enables retrying of network requests on connection failure. Network IO actions are prone to temporary failures that warrant retrying of the original action. On the other hand, servant-client doesn’t support a retry mechanism.</p></li>
+<li><p>Servant-client has a native streaming backend via <code>SourceT</code> and supports other external streaming backends such as <a href="https://github.com/snoyberg/conduit">Conduit</a>, <code>Pipes</code> and <code>Machines</code>. On the other hand, Hreq currently supports <code>streaming</code> only via <code>Conduit</code>. Other streaming backends can easily be added depending on community interest.</p></li>
+<li><p>Hreq provides pattern synonyms that make the creation of <code>BaseUrls</code> more concise and less error-prone. For example, the <code>HttpDomain</code> and <code>HttpsDomain</code> synonyms create base URLs from a provided <code>domain</code>. The <code>HttpUrl</code> and <code>HttpsUrl</code> create base URLs from a provided <code>domain</code> and <code>path</code>. If one needs to provide a custom <code>port</code> number, they can fall back to directly using the <code>BaseUrl</code> constructor.</p></li>
+</ul>
+<h2 id="usage-example">Usage Example<a href="#usage-example" class="anchor">🔗</a></h2>
+<p>The same code sample can be found in the <a href="https://github.com/epicallan/hreq/blob/master/example/Main.hs">Example module</a> on Github with the necessary language extensions.</p>
+<p>Assume we are making requests against a hypothetical HTTP service providing a JSON user management API.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">import</span> <span class="dt">Data.Aeson</span> (<span class="dt">FromJSON</span>, <span class="dt">ToJSON</span>)</span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="kw">import</span> <span class="dt">Data.Text</span> (<span class="dt">Text</span>)</span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="kw">import</span> <span class="dt">Control.Monad.IO.Class</span> (liftIO)</span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="kw">import</span> <span class="dt">GHC.Generics</span> (<span class="dt">Generic</span>)</span>
+<span id="cb1-5"><a href="#cb1-5"></a><span class="kw">import</span> <span class="dt">Hreq.Client</span></span>
+<span id="cb1-6"><a href="#cb1-6"></a></span>
+<span id="cb1-7"><a href="#cb1-7"></a><span class="kw">data</span> <span class="dt">User</span> <span class="ot">=</span> <span class="dt">User</span></span>
+<span id="cb1-8"><a href="#cb1-8"></a> {<span class="ot"> name ::</span> <span class="dt">Text</span></span>
+<span id="cb1-9"><a href="#cb1-9"></a> ,<span class="ot"> age  ::</span> <span class="dt">Int</span></span>
+<span id="cb1-10"><a href="#cb1-10"></a> } <span class="kw">deriving</span> (<span class="dt">Show</span>, <span class="dt">Generic</span>, <span class="dt">FromJSON</span>, <span class="dt">ToJSON</span>)</span>
+<span id="cb1-11"><a href="#cb1-11"></a></span>
+<span id="cb1-12"><a href="#cb1-12"></a><span class="co">-- User service API URL</span></span>
+<span id="cb1-13"><a href="#cb1-13"></a><span class="ot">baseUrl ::</span> <span class="dt">BaseUrl</span></span>
+<span id="cb1-14"><a href="#cb1-14"></a>baseUrl <span class="ot">=</span> <span class="dt">HttpUrl</span> <span class="st">&quot;example.com&quot;</span> <span class="st">&quot;user&quot;</span></span></code></pre></div>
+<h3 id="simple-get-request">Simple Get request<a href="#simple-get-request" class="anchor">🔗</a></h3>
+<p>Make a Get request obtaining a <code>User</code> by a specified <code>user-name</code> at <a href="http://example.com/user/:userName" class="uri">http://example.com/user/:userName</a></p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb2-1"><a href="#cb2-1"></a><span class="ot">getUserByName ::</span> <span class="dt">RunClient</span> m <span class="ot">=&gt;</span> <span class="dt">Text</span> <span class="ot">-&gt;</span> m <span class="dt">User</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a>getUserByName userName <span class="ot">=</span> hreq <span class="op">@</span>(<span class="dt">Capture</span> <span class="dt">Text</span> <span class="op">:&gt;</span> <span class="dt">GetJson</span> <span class="dt">User</span>) (userName <span class="op">:.</span> <span class="dt">Empty</span>)</span></code></pre></div>
+<p>The <code>Capture Text :&gt; GetJson User</code> type within <code>getUserByName</code> is an API endpoint type definition.</p>
+<p>The API type definition in this instance demands that a heterogeneous list containing a <code>Text</code> value is supplied to the <code>hreq</code> function.</p>
+<p><code>userName :. Empty</code> forms the required heterogeneous list value for the <code>hreq</code> function. Finally, the API type states that we will obtain a <code>JSON User</code> response output.</p>
+<h3 id="simple-post-request">Simple Post request<a href="#simple-post-request" class="anchor">🔗</a></h3>
+<p>Make a Post request with Json User data for a request body returning a Json User response at <a href="http://example.com/user" class="uri">http://example.com/user</a></p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb3-1"><a href="#cb3-1"></a><span class="ot">createUser ::</span> <span class="dt">RunClient</span> m <span class="ot">=&gt;</span> <span class="dt">User</span> <span class="ot">-&gt;</span> m ()</span>
+<span id="cb3-2"><a href="#cb3-2"></a>createUser user <span class="ot">=</span> hreq <span class="op">@</span>(<span class="dt">JsonBody</span> <span class="dt">User</span> <span class="op">:&gt;</span> <span class="dt">EmptyResponse</span> <span class="dt">POST</span>) (user <span class="op">:.</span> <span class="dt">Empty</span>)</span></code></pre></div>
+<h3 id="get-request-with-queryflag">Get Request with QueryFlag<a href="#get-request-with-queryflag" class="anchor">🔗</a></h3>
+<p>Make a Get request obtaining all users at API endpoint <a href="http://example.com/user/all?old" class="uri">http://example.com/user/all?old</a></p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb4-1"><a href="#cb4-1"></a><span class="ot">getAllUsers ::</span> <span class="dt">RunClient</span> m <span class="ot">=&gt;</span> m [<span class="dt">User</span>]</span>
+<span id="cb4-2"><a href="#cb4-2"></a>getAllUsers <span class="ot">=</span> hreq <span class="op">@</span>(<span class="st">&quot;all&quot;</span> <span class="op">:&gt;</span> <span class="dt">QueryFlag</span> <span class="st">&quot;old&quot;</span> <span class="op">:&gt;</span> <span class="dt">GetJson</span> [<span class="dt">User</span>]) <span class="dt">Empty</span></span></code></pre></div>
+<h3 id="running-api-endpoint-functions">Running api endpoint functions<a href="#running-api-endpoint-functions" class="anchor">🔗</a></h3>
+<p>In the main function; the API endpoint functions run within the<code>Hreq</code> monad. The Hreq monad is an instance of the <code>RunClient</code> class and <code>MonadIO</code> class.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb5-1"><a href="#cb5-1"></a><span class="ot">main ::</span> <span class="dt">IO</span> ()</span>
+<span id="cb5-2"><a href="#cb5-2"></a>main <span class="ot">=</span> runHreq baseUrl <span class="op">$</span> <span class="kw">do</span></span>
+<span id="cb5-3"><a href="#cb5-3"></a> reqUser     <span class="ot">&lt;-</span> getUserByName <span class="st">&quot;allan&quot;</span></span>
+<span id="cb5-4"><a href="#cb5-4"></a> createdUser <span class="ot">&lt;-</span> createUser newUser</span>
+<span id="cb5-5"><a href="#cb5-5"></a> allUsers    <span class="ot">&lt;-</span> getAllUsers</span>
+<span id="cb5-6"><a href="#cb5-6"></a> <span class="co">-- Delete users with age equal to 20</span></span>
+<span id="cb5-7"><a href="#cb5-7"></a> hreq <span class="op">@</span>(<span class="dt">Capture</span> <span class="dt">Int</span> <span class="op">:&gt;</span> <span class="dt">EmptyResponse</span> <span class="dt">DELETE</span>) (<span class="dv">20</span> <span class="op">:.</span> <span class="dt">Empty</span>)</span>
+<span id="cb5-8"><a href="#cb5-8"></a> <span class="co">-- do something with API data</span></span>
+<span id="cb5-9"><a href="#cb5-9"></a> liftIO <span class="op">$</span> <span class="fu">print</span> (reqUser, createdUser, allUsers)</span>
+<span id="cb5-10"><a href="#cb5-10"></a> <span class="kw">where</span></span>
+<span id="cb5-11"><a href="#cb5-11"></a><span class="ot">   newUser ::</span> <span class="dt">User</span></span>
+<span id="cb5-12"><a href="#cb5-12"></a>   newUser <span class="ot">=</span> <span class="dt">User</span> <span class="st">&quot;allan&quot;</span> <span class="dv">12</span></span></code></pre></div>
+<h3 id="more-examples">More Examples<a href="#more-examples" class="anchor">🔗</a></h3>
+<p>More examples can be found on <code>hackage</code> and within <code>library tests</code>. An example showcasing streaming support via conduit can be found within the streaming package’s <a href="https://github.com/epicallan/hreq/blob/master/hreq-conduit/README.md">readme</a> file.</p>
+<h2 id="conclusion">Conclusion<a href="#conclusion" class="anchor">🔗</a></h2>
+<p>I hope you get to enjoy hreq. Please reach out through the <a href="https://github.com/epicallan/hreq">project’s GitHub issue tracker</a> if you come across any issues. Happy coding.</p>
+<h2 id="acknowledgment">Acknowledgment<a href="#acknowledgment" class="anchor">🔗</a></h2>
+<p>Many thanks to <a href="https://kodimensional.dev/">Dmitrii Kovanikov</a> and <a href="https://twitter.com/alvinkatojr">Alvin</a> for having reviewed my blog post and given me helpful suggestions.</p>
+                </p>
+                <br>
+                <p>Published on: November 12, 2019</p>
+                <br>
+                <p>
+                    My blog is hosted on <a href="https://github.com/epicallan/epicallan.github.io" target="_blank">Github</a>. If you would like to leave a comment or report a problem please feel free to
+                    leave one there.
+                </p>
+              </div>
+          </div>
+          </div>
+      </div>
+
+
+      <!-- Bootstrap core JavaScript -->
+      <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"> </script>
+      <script src="../js/post.js"> </script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/haskell.min.js"></script>
+      <script>hljs.initHighlightingOnLoad()</script>
+      <script async defer src="https://buttons.github.io/buttons.js"></script>
+  </body>
+</html>

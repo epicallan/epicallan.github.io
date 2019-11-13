@@ -8,13 +8,13 @@
         <name>Lukwago Allan</name>
         <email>epicallan.al@gmail.com</email>
     </author>
-    <updated>2019-11-06T00:00:00Z</updated>
+    <updated>2019-11-12T00:00:00Z</updated>
     <entry>
     <title>HTTP Requests with Hreq</title>
     <link href="https://epicallan.github.io/posts/http-requests-with-hreq.html" />
     <id>https://epicallan.github.io/posts/http-requests-with-hreq.html</id>
-    <published>2019-11-06T00:00:00Z</published>
-    <updated>2019-11-06T00:00:00Z</updated>
+    <published>2019-11-12T00:00:00Z</published>
+    <updated>2019-11-12T00:00:00Z</updated>
     <summary type="html"><![CDATA[An easy to use type-driven Http client Haskell library inspired by Servant-Client.]]></summary>
 </entry>
 <entry>

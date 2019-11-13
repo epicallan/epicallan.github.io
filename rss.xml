@@ -7,12 +7,12 @@
         <description><![CDATA[A blog about functional programming anything software engineering related that catches my fancy]]></description>
         <atom:link href="https://epicallan.github.io/rss.xml" rel="self"
                    type="application/rss+xml" />
-        <lastBuildDate>Wed, 06 Nov 2019 00:00:00 UT</lastBuildDate>
+        <lastBuildDate>Tue, 12 Nov 2019 00:00:00 UT</lastBuildDate>
         <item>
     <title>HTTP Requests with Hreq</title>
     <link>https://epicallan.github.io/posts/http-requests-with-hreq.html</link>
     <description><![CDATA[An easy to use type-driven Http client Haskell library inspired by Servant-Client.]]></description>
-    <pubDate>Wed, 06 Nov 2019 00:00:00 UT</pubDate>
+    <pubDate>Tue, 12 Nov 2019 00:00:00 UT</pubDate>
     <guid>https://epicallan.github.io/posts/http-requests-with-hreq.html</guid>
     <dc:creator>Lukwago Allan</dc:creator>
 </item>
