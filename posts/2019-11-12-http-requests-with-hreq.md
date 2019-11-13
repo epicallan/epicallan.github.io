@@ -143,4 +143,4 @@ I hope you get to enjoy hreq. Please reach out through the [project's GitHub iss
 
 ## Acknowledgment
 
-Many thanks to [Dmitrii Kovanikov](https://kodimensional.dev/) and [Alvin](https://twitter.com/alvinkatojr) for having reviewed my blog post and given me helpful suggestions.
+Many thanks to [Dmitrii Kovanikov](https://kodimensional.dev/) and [Alvin Kato](https://twitter.com/alvinkatojr) for having reviewed my blog post and given me helpful suggestions.
