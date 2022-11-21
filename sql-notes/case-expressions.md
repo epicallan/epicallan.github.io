@@ -1,0 +1,1 @@
+# Simplifications with case expressions

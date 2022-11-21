@@ -1,19 +1,18 @@
-# Inner JOIN vs WHERE exists sub-query
+# Inner JOIN vs WHERE EXISTS sub-query
 
-As is the case in many languages where its usually possible to solve the same problem in more ways than one, the same is true for SQL.
+As is the case in many languages where it's usually possible to solve the same problem in more ways than one, the same is true for SQL.
 
-Consider a scenario where you need to JOIN 2 tables where you only need the intersecting column.
-This problem can be solved by a classical inner join. However, you can also solve this same problem with a WHERE EXISTS sub-query.
+Consider a scenario where you need to assert a column exists in two intersecting tables and retrieve said column.
+This problem can be solved by a classic inner join, however, a WHERE EXISTS sub-query can also suffice.
 
 ## The jury
 
 To judge which approach is canonical we would need to consider the following attributes per approach.
 
-1 - Simplicity and power
-2 - Query plan and execution
-3 - Possession of declarative intentions
+1. Simplicity and power
+2. Query plan and execution
 
-With `JOIN` query
+With the `JOIN` query
 
 ```sql
 SELECT
@@ -26,7 +25,7 @@ USING
   (category)
 ```
 
-With `WHERE EXISTS` query
+With the `WHERE EXISTS` query
 
 ```sql
 SELECT
@@ -46,18 +45,20 @@ WHERE
 
 ### Simplicity and power
 
-The where clause approach is arguably the least powerful and simpler method of the two.
+The WHERE EXISTS approach is arguably the least powerful and simpler method of the two based on the following.
+
+- A JOIN is a more complex primitive than a WHERE clause.
+- The WHERE EXISTS approach doesn't bring into scope columns from the adjoining table in the query's main SELECT. This enables us to keep
+  the relation in terms of columns available as narrow as possible.
 
 ### Query plan and execution (WIP)
 
 I have observed both queries to produce the same query plan and thus execution time.
 
-### Possession of declarative intentions
+### Conclusion
 
-Both queries appear to possess the same level of declarative intentions.
+Based on the above examination a WHERE EXISTS query could be a perfect drop-in replacement for a JOIN query on account of the simplicity and least powerful attribute as explained above.
 
-## Conclusion
+I would like to further emphasize that for cases where you need to retrieve non-intersecting columns from the adjoining tables, an explicit inner JOIN makes more sense on top of being lighter syntax-wise.
 
-Basing on the above examination a WHERE EXISTS query could be a perfect drop in replacement for a simple inner query on account of the simplicity and least powerful attribute.
-
-I would like to further emphasize that for cases where you need to retrieve multiple columns from 2 intersecting tables, an explicit inner JOIN makes more sense.
+The rule of thumb is; If you don't need something explicitly from the table, don't join it. We want to keep the relation (in terms of columns available) as narrow as possible.
