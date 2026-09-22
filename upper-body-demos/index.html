@@ -1,0 +1,478 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Upper-Body Strength Plan — Exercise Demos</title>
+<style>
+  :root{
+    color-scheme: light;
+    --bg:#0e1116; --panel:#161b22; --panel2:#1c232d; --line:#2a323d;
+    --ink:#e8edf3; --muted:#9aa7b6; --accent:#ff6b35; --accent2:#4cc9f0;
+    --good:#3ddc97; --figure:#e8edf3; --limb:#ff6b35; --weight:#4cc9f0;
+    --chip:#222c38;
+    font-synthesis:none;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    -webkit-font-smoothing:antialiased; line-height:1.45;
+  }
+  .wrap{max-width:1180px; margin:0 auto; padding:20px 16px 60px}
+  header.top{padding:6px 2px 14px}
+  h1{font-size:26px; margin:0 0 4px; letter-spacing:-.02em}
+  .sub{color:var(--muted); font-size:14px; margin:0}
+  .controls{
+    display:flex; flex-wrap:wrap; gap:8px; align-items:center;
+    position:sticky; top:0; z-index:20; background:linear-gradient(var(--bg),var(--bg) 70%, rgba(14,17,22,.0));
+    padding:12px 2px; margin:8px 0 6px;
+  }
+  .tabs{display:flex; flex-wrap:wrap; gap:6px}
+  .tab{
+    border:1px solid var(--line); background:var(--panel); color:var(--ink);
+    padding:8px 12px; border-radius:999px; font-size:13px; cursor:pointer; white-space:nowrap;
+    transition:.15s;
+  }
+  .tab .d{color:var(--muted); font-size:11px; display:block; margin-top:1px}
+  .tab.active{background:var(--accent); border-color:var(--accent); color:#111}
+  .tab.active .d{color:#3a1c0d}
+  .tab:hover{border-color:var(--accent)}
+  .spacer{flex:1 1 40px}
+  .speed{display:flex; align-items:center; gap:8px; color:var(--muted); font-size:12px}
+  .speed input{accent-color:var(--accent)}
+  .btn{
+    border:1px solid var(--line); background:var(--panel); color:var(--ink);
+    padding:8px 12px; border-radius:8px; font-size:13px; cursor:pointer;
+  }
+  .btn:hover{border-color:var(--accent2)}
+  .dayhead{margin:22px 2px 10px; display:flex; align-items:baseline; gap:10px}
+  .dayhead h2{font-size:18px; margin:0}
+  .dayhead .tag{font-size:12px; color:var(--muted)}
+  .grid{
+    display:grid; gap:14px;
+    grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
+  }
+  .card{
+    background:var(--panel); border:1px solid var(--line); border-radius:14px;
+    overflow:hidden; display:flex; flex-direction:column;
+  }
+  .stage{
+    background:radial-gradient(120% 90% at 50% 20%, #1f2732 0%, #12171e 70%);
+    position:relative; aspect-ratio:1/.86;
+  }
+  .stage svg{width:100%; height:100%; display:block}
+  .num{
+    position:absolute; top:8px; left:10px; font-size:11px; color:var(--muted);
+    background:rgba(0,0,0,.35); padding:2px 7px; border-radius:6px;
+  }
+  .setpill{
+    position:absolute; top:8px; right:10px; font-size:12px; font-weight:600;
+    color:#111; background:var(--accent2); padding:3px 9px; border-radius:999px;
+  }
+  .body{padding:12px 13px 14px}
+  .name{font-size:15px; font-weight:650; margin:0 0 2px}
+  .meta{font-size:12px; color:var(--muted); margin:0 0 8px}
+  .meta b{color:var(--accent2); font-weight:600}
+  .cues{margin:0; padding:0; list-style:none; display:flex; flex-direction:column; gap:4px}
+  .cues li{font-size:12.5px; color:#cdd6e0; padding-left:15px; position:relative}
+  .cues li:before{content:"›"; position:absolute; left:2px; color:var(--accent); font-weight:700}
+  .muscle{
+    display:inline-block; margin-top:9px; font-size:11px; color:var(--muted);
+    background:var(--chip); border:1px solid var(--line); padding:2px 8px; border-radius:6px;
+  }
+  .demo{
+    display:inline-flex; align-items:center; gap:5px; margin-top:10px; font-size:12px;
+    color:var(--accent2); text-decoration:none; font-weight:600;
+    background:rgba(76,201,240,.08); border:1px solid rgba(76,201,240,.35);
+    padding:5px 10px; border-radius:8px; transition:.15s;
+  }
+  .demo:hover{background:rgba(76,201,240,.18); border-color:var(--accent2)}
+  .demo .yt{font-size:13px}
+  .foot-links{margin-top:6px}
+  footer.foot{margin-top:30px; color:var(--muted); font-size:12.5px; border-top:1px solid var(--line); padding-top:16px}
+  footer.foot b{color:var(--ink)}
+  a{color:var(--accent2)}
+  @media (max-width:520px){
+    h1{font-size:22px}
+    .grid{grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); gap:10px}
+    .cues{display:none}
+    .card.open .cues{display:flex}
+    .body{padding:10px}
+  }
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <h1>Upper-Body Strength Plan</h1>
+    <p class="sub">8-week, 5-day split · ~30 min sessions · supersets for volume. Tap a day to filter; drag the slider to change animation speed.</p>
+  </header>
+
+  <div class="controls">
+    <div class="tabs" id="tabs"></div>
+    <div class="spacer"></div>
+    <div class="speed">
+      <button class="btn" id="playBtn">⏸ Pause</button>
+      <label>Speed
+        <input id="speed" type="range" min="0.4" max="2" step="0.1" value="1">
+      </label>
+    </div>
+  </div>
+
+  <div id="days"></div>
+
+  <footer class="foot">
+    <p><b>Progressive overload is the whole game.</b> Each week beat last week — a little more weight or a rep or two on the main lifts. Log it in your WORKOUT.md; if you're not beating last week fairly often, you're not overloading.</p>
+    <p>Keep it to 30 min: ~3–4 min warm-up (light sets of the first lift), 60–75 s superset rest, ~2 min only on the heavy first lift, don't wander between sets. Protein 1.6–2.2 g/kg, 7+ hrs sleep — muscle is built in recovery.</p>
+    <p style="opacity:.8">Figures are stylized demonstrations of the movement pattern, not form-perfect models. General fitness guidance, not medical advice — check with a professional if you have injuries or conditions.</p>
+  </footer>
+</div>
+
+<script>
+/* ---------- math helpers ---------- */
+const R = d => d*Math.PI/180;
+const seg = (p,ang,len) => [p[0]+len*Math.sin(R(ang)), p[1]+len*Math.cos(R(ang))];
+const lerp = (a,b,t) => a+(b-a)*t;
+const rot = (p,o,r) => {
+  const dx=p[0]-o[0], dy=p[1]-o[1], c=Math.cos(R(r)), s=Math.sin(R(r));
+  return [o[0]+dx*c-dy*s, o[1]+dx*s+dy*c];
+};
+const P = (a)=>a.map(n=>Math.round(n*10)/10).join(',');
+
+/* ---------- SVG builders ---------- */
+const NS='http://www.w3.org/2000/svg';
+function el(name,attrs){const e=document.createElementNS(NS,name);for(const k in attrs)e.setAttribute(k,attrs[k]);return e;}
+function line(a,b,w,stroke){return el('line',{x1:a[0],y1:a[1],x2:b[0],y2:b[1],stroke:stroke||'var(--figure)','stroke-width':w||7,'stroke-linecap':'round'});}
+function circ(c,r,fill){return el('circle',{cx:c[0],cy:c[1],r:r,fill:fill||'var(--figure)'});}
+
+/* segment lengths */
+const L={torso:52, neck:16, ua:26, fa:24, th:34, sh:34, ft:14};
+
+/* interpolate a pose object */
+function ipose(a,b,t){const o={};const keys=new Set([...Object.keys(a),...Object.keys(b)]);keys.forEach(k=>o[k]=lerp(a[k]??0,b[k]??0,t));return o;}
+
+/* ---------- equipment ---------- */
+function drawWeight(g,type,hands){
+  const W='var(--weight)';
+  hands.forEach(h=>{
+    if(type==='dumbbell'||type==='dumbbell-neutral'){
+      const perp = type==='dumbbell-neutral'?0:90;
+      const a=seg(h,perp,9), b=seg(h,perp+180,9);
+      g.appendChild(line(a,b,6,W));
+      g.appendChild(el('rect',{x:a[0]-5,y:a[1]-5,width:10,height:10,rx:2,fill:W}));
+      g.appendChild(el('rect',{x:b[0]-5,y:b[1]-5,width:10,height:10,rx:2,fill:W}));
+    }
+  });
+}
+function drawBarbell(g,hands,orient){ // orient 'h' horizontal
+  const W='var(--weight)';
+  if(hands.length===2){
+    const a=hands[0],b=hands[1];
+    const dx=b[0]-a[0],dy=b[1]-a[1],len=Math.hypot(dx,dy)||1;
+    const ux=dx/len,uy=dy/len, ext=22;
+    const pa=[a[0]-ux*ext,a[1]-uy*ext], pb=[b[0]+ux*ext,b[1]+uy*ext];
+    g.appendChild(line(pa,pb,5,W));
+    [pa,pb].forEach(pt=>{ // plates
+      g.appendChild(el('rect',{x:pt[0]-4,y:pt[1]-11,width:8,height:22,rx:2,fill:W}));
+    });
+  } else {
+    const h=hands[0]; const a=[h[0]-30,h[1]],b=[h[0]+30,h[1]];
+    g.appendChild(line(a,b,5,W));
+    g.appendChild(el('rect',{x:a[0]-4,y:a[1]-11,width:8,height:22,rx:2,fill:W}));
+    g.appendChild(el('rect',{x:b[0]-4,y:b[1]-11,width:8,height:22,rx:2,fill:W}));
+  }
+}
+function drawCable(g,hands,dir){ // dir 'up' or 'down'
+  const C='var(--muted)';
+  const target = dir==='up'?[110,14]:[110,232];
+  hands.forEach(h=>{ g.appendChild(line(h,target,2.5,C)); });
+  // pulley/anchor
+  if(dir==='up'){ g.appendChild(el('rect',{x:70,y:6,width:80,height:8,rx:3,fill:'#39434f'})); g.appendChild(circ([110,14],5,C)); }
+  else { g.appendChild(el('rect',{x:86,y:230,width:48,height:8,rx:3,fill:'#39434f'})); }
+}
+function drawMachine(g,hands){
+  const M='#39434f';
+  g.appendChild(el('rect',{x:150,y:70,width:12,height:120,rx:3,fill:M})); // upright behind
+  g.appendChild(el('rect',{x:44,y:150,width:14,height:60,rx:3,fill:M}));   // seat post
+  hands.forEach(h=>{ g.appendChild(el('rect',{x:h[0]-4,y:h[1]-9,width:8,height:18,rx:3,fill:'var(--weight)'})); });
+}
+function drawPullbar(g,hands){
+  const xs=hands.map(h=>h[0]); const y=Math.min(...hands.map(h=>h[1]))-2;
+  const a=[Math.min(...xs)-18,y], b=[Math.max(...xs)+18,y];
+  g.appendChild(line(a,b,5,'var(--weight)'));
+  g.appendChild(el('rect',{x:70,y:y-8,width:6,height:8,fill:'#39434f'}));
+  g.appendChild(el('rect',{x:144,y:y-8,width:6,height:8,fill:'#39434f'}));
+}
+function drawBars(g,hands){ // parallel dip bars
+  hands.forEach(h=>{ g.appendChild(line([h[0]-4,h[1]],[h[0]+20,h[1]],5,'var(--weight)')); });
+}
+function drawBench(g,recline){
+  const B='#2b3542';
+  if(recline>=80){ g.appendChild(el('rect',{x:60,y:150,width:100,height:10,rx:4,fill:B})); g.appendChild(el('rect',{x:66,y:160,width:8,height:34,fill:B})); g.appendChild(el('rect',{x:146,y:160,width:8,height:34,fill:B})); }
+  else if(recline>=25){ g.appendChild(el('rect',{x:70,y:112,width:70,height:10,rx:4,fill:B,transform:'rotate(-42 105 150)'})); g.appendChild(el('rect',{x:96,y:150,width:34,height:10,rx:4,fill:B})); }
+}
+
+/* ---------- figure renderer ---------- */
+function buildFigure(ex,t){
+  const pose = ipose(ex.a, ex.b, t);
+  const g = el('g',{});
+  const anchor = [110,150];
+  const hipY = 150 + (pose.bob||0);
+  const view = ex.view;
+  const parts=[]; let hands=[];
+
+  if(view==='front'){
+    const hip=[110,hipY];
+    const tl=pose.tl||0;
+    const sc=[hip[0]+L.torso*Math.sin(R(tl)), hip[1]-L.torso*Math.cos(R(tl))]; // shoulder center
+    const rsh=[sc[0]+18,sc[1]], lsh=[sc[0]-18,sc[1]];
+    const head=[sc[0], sc[1]-18];
+    // arms (right uses +sin => outward right)
+    const reb=seg(rsh,pose.sh,L.ua), rha=seg(reb,pose.el,L.fa);
+    const leb=[lsh[0]-L.ua*Math.sin(R(pose.sh)), lsh[1]+L.ua*Math.cos(R(pose.sh))];
+    const lha=[leb[0]-L.fa*Math.sin(R(pose.el)), leb[1]+L.fa*Math.cos(R(pose.el))];
+    // legs straight
+    const rhip=[hip[0]+9,hip[1]], lhip=[hip[0]-9,hip[1]];
+    const rk=[rhip[0]+2,rhip[1]+L.th], lk=[lhip[0]-2,lhip[1]+L.th];
+    const rf=[rk[0]+3,rk[1]+L.sh], lf=[lk[0]-3,lk[1]+L.sh];
+    // draw legs, torso, arms
+    parts.push(line(rhip,rk,7),line(rk,rf,7),line([rf[0]-6,rf[1]],[rf[0]+8,rf[1]],6));
+    parts.push(line(lhip,lk,7),line(lk,lf,7),line([lf[0]-8,lf[1]],[lf[0]+6,lf[1]],6));
+    parts.push(line(hip,sc,9));
+    parts.push(line(lsh,rsh,7));
+    parts.push(circ(head,12));
+    parts.push(line(rsh,reb,6,'var(--limb)'),line(reb,rha,6,'var(--limb)'));
+    parts.push(line(lsh,leb,6,'var(--limb)'),line(leb,lha,6,'var(--limb)'));
+    hands=[rha,lha];
+    ex._hands=hands;
+  } else { // side, facing right
+    let hip=[95,hipY];
+    const tl=pose.tl||0;
+    let sc=[hip[0]+L.torso*Math.sin(R(tl)), hip[1]-L.torso*Math.cos(R(tl))];
+    let head=[sc[0]+L.neck*Math.sin(R(tl)), sc[1]-L.neck*Math.cos(R(tl))];
+    let knee=seg(hip,pose.hip||0,L.th), ankle=seg(knee,pose.kn||0,L.sh), toe=seg(ankle,90,L.ft);
+    const rec=ex.recline||0;
+    if(rec){ const o=hip; sc=rot(sc,o,rec); head=rot(head,o,rec); knee=rot(knee,o,rec); ankle=rot(ankle,o,rec); toe=rot(toe,o,rec); }
+    // arms from shoulder using absolute screen angles
+    const eb=seg(sc,pose.sh,L.ua), ha=seg(eb,pose.el,L.fa);
+    // second (far) arm slightly offset for depth
+    const eb2=seg([sc[0]-3,sc[1]+2],pose.sh,L.ua), ha2=seg(eb2,pose.el,L.fa);
+    parts.push(line(hip,knee,7),line(knee,ankle,7),line(ankle,toe,6));
+    parts.push(line(hip,sc,9));
+    parts.push(circ(head,12));
+    if(ex.twoArm!==false){parts.push(line([sc[0]-3,sc[1]+2],eb2,6,'#c25428'),line(eb2,ha2,6,'#c25428'));}
+    parts.push(line(sc,eb,6,'var(--limb)'),line(eb,ha,6,'var(--limb)'));
+    hands = ex.oneHand ? [ha] : [ha,ha];
+    ex._hands=[ha];
+  }
+
+  // equipment behind or in front
+  const eg = el('g',{});
+  if(ex.equip==='machine') drawMachine(eg,[ex._hands[0]]);
+  if(ex.bench) drawBench(eg,ex.recline||0);
+  if(ex.equip==='pullbar') drawPullbar(eg, view==='front'?hands:[ex._hands[0]]);
+  if(ex.equip==='bars') drawBars(eg,[ex._hands[0]]);
+  if(ex.equip==='cable-high') drawCable(eg, view==='front'?hands:[ex._hands[0]],'up');
+  if(ex.equip==='cable-low') drawCable(eg, view==='front'?hands:[ex._hands[0]],'down');
+
+  const fg = el('g',{});
+  parts.forEach(p=>fg.appendChild(p));
+
+  const wg = el('g',{});
+  if(ex.equip==='barbell') drawBarbell(wg, view==='front'?hands:[ex._hands[0]]);
+  if(ex.equip==='dumbbell') drawWeight(wg,'dumbbell', view==='front'?hands:[ex._hands[0]]);
+  if(ex.equip==='dumbbell-neutral') drawWeight(wg,'dumbbell-neutral', view==='front'?hands:[ex._hands[0]]);
+
+  g.appendChild(eg); g.appendChild(fg); g.appendChild(wg);
+  return g;
+}
+
+/* ---------- exercise data ---------- */
+/* angle convention: 0=down, 90=right, 180=up, -90=left. front: right-arm sh/el positive=outward */
+const EX = [
+ // DAY 1 PUSH HEAVY
+ {day:1,name:"Barbell Bench Press",sets:"4 × 5",rest:"~2 min rest",muscle:"Chest · triceps · front delt",view:"side",equip:"barbell",bench:true,recline:90,twoArm:false,
+   a:{sh:172,el:18,hip:90,kn:0,tl:0}, b:{sh:180,el:180,hip:90,kn:0,tl:0},
+   cues:["Shoulder blades pinned back and down","Lower the bar to mid-chest, drive up and slightly back","Feet planted, don't bounce off the chest"]},
+ {day:1,name:"Seated DB Shoulder Press",sets:"3 × 8",rest:"superset ↓",muscle:"Shoulders · triceps",view:"front",equip:"dumbbell",
+   a:{sh:138,el:150}, b:{sh:168,el:180},
+   cues:["Press up and slightly in, don't flare wide","Stop just short of locking out","Ribs down — don't arch the lower back"]},
+ {day:1,name:"Lateral Raise",sets:"3 × 15",rest:"60–75 sec rest",muscle:"Side delts",view:"front",equip:"dumbbell",
+   a:{sh:6,el:8}, b:{sh:86,el:88},
+   cues:["Lead with the elbows, soft bend in the arm","Raise to shoulder height — no higher","Slow down on the way back, no swinging"]},
+ {day:1,name:"Rope Triceps Pushdown",sets:"3 × 10",rest:"superset ↓",muscle:"Triceps",view:"front",equip:"cable-high",
+   a:{sh:12,el:82}, b:{sh:12,el:6},
+   cues:["Elbows glued to your sides","Spread the rope apart at the bottom","Control the return, don't let it yank you up"]},
+ {day:1,name:"Overhead Triceps Extension",sets:"3 × 12",rest:"60–75 sec rest",muscle:"Triceps (long head)",view:"front",equip:"dumbbell",
+   a:{sh:178,el:118}, b:{sh:178,el:182},
+   cues:["Upper arms stay vertical by the ears","Lower behind the head for a deep stretch","Full lockout without flaring the elbows"]},
+
+ // DAY 2 PULL HEAVY
+ {day:2,name:"Weighted / Assisted Pull-up",sets:"4 × 6",rest:"~2 min rest",muscle:"Lats · biceps · mid-back",view:"front",equip:"pullbar",
+   a:{sh:162,el:178,bob:14}, b:{sh:120,el:150,bob:-6},
+   cues:["Start from a full dead hang","Drive elbows down to your ribs","Chest to the bar, no kipping"]},
+ {day:2,name:"DB Row",sets:"3 × 8",rest:"superset ↓",muscle:"Lats · mid-back",view:"side",equip:"dumbbell",oneHand:true,twoArm:false,
+   a:{sh:6,el:4,tl:70,hip:0,kn:0}, b:{sh:-24,el:-30,tl:70,hip:0,kn:0},
+   cues:["Flat back, hinged ~70°","Pull the elbow past your torso, not out wide","Squeeze the shoulder blade at the top"]},
+ {day:2,name:"Face Pull",sets:"3 × 15",rest:"60–75 sec rest",muscle:"Rear delts · rotator cuff",view:"front",equip:"cable-high",
+   a:{sh:150,el:160}, b:{sh:112,el:214},
+   cues:["Pull the rope toward your forehead","Elbows high, hands finish by your ears","Think 'pull apart' at the end"]},
+ {day:2,name:"Barbell Curl",sets:"3 × 8",rest:"superset ↓",muscle:"Biceps",view:"front",equip:"barbell",
+   a:{sh:10,el:14}, b:{sh:14,el:164},
+   cues:["Elbows pinned to your sides","No swinging — lift with the biceps","Lower under control, full stretch at the bottom"]},
+ {day:2,name:"Hammer Curl",sets:"3 × 12",rest:"60–75 sec rest",muscle:"Biceps · brachialis · forearm",view:"front",equip:"dumbbell-neutral",
+   a:{sh:10,el:14}, b:{sh:12,el:160},
+   cues:["Neutral grip — thumbs up throughout","Keep wrists straight","Control both directions, no momentum"]},
+
+ // DAY 3 PUSH HYPERTROPHY
+ {day:3,name:"Incline DB Press",sets:"4 × 10",rest:"~90 sec rest",muscle:"Upper chest · front delt",view:"side",equip:"dumbbell",bench:true,recline:42,twoArm:false,
+   a:{sh:150,el:70,hip:40,kn:-6,tl:0}, b:{sh:168,el:178,hip:40,kn:-6,tl:0},
+   cues:["Bench at ~30–45°","Lower to the upper chest, elbows ~45°","Press up and slightly together"]},
+ {day:3,name:"Machine Chest Press",sets:"3 × 12",rest:"superset ↓",muscle:"Chest",view:"front",equip:"machine",
+   a:{sh:72,el:118}, b:{sh:30,el:22},
+   cues:["Handles at mid-chest height","Press together, squeeze at full extension","Don't let the stack slam on the return"]},
+ {day:3,name:"Lateral Raise",sets:"3 × 15",rest:"60–75 sec rest",muscle:"Side delts",view:"front",equip:"dumbbell",
+   a:{sh:6,el:8}, b:{sh:86,el:88},
+   cues:["Lead with the elbows","Shoulder height, then control down","Lighter weight, strict form for reps"]},
+ {day:3,name:"Dips",sets:"3 × 12",rest:"superset ↓",muscle:"Lower chest · triceps",view:"side",equip:"bars",twoArm:false,
+   a:{sh:184,el:184,tl:8,bob:0,hip:2,kn:2}, b:{sh:150,el:150,tl:14,bob:20,hip:2,kn:2},
+   cues:["Slight forward lean for chest emphasis","Lower until upper arms are parallel","Lock out at the top; sub close-grip push-ups if needed"]},
+ {day:3,name:"Triceps Pushdown",sets:"3 × 15",rest:"60–75 sec rest",muscle:"Triceps",view:"front",equip:"cable-high",
+   a:{sh:12,el:82}, b:{sh:12,el:6},
+   cues:["Elbows locked at your sides","Full extension, brief squeeze","Higher reps — chase the pump here"]},
+
+ // DAY 4 PULL HYPERTROPHY
+ {day:4,name:"Wide-grip Lat Pulldown",sets:"4 × 10",rest:"~90 sec rest",muscle:"Lats · upper back",view:"front",equip:"pullbar",
+   a:{sh:158,el:176,bob:0}, b:{sh:118,el:150,bob:0},
+   cues:["Wide grip, slight lean back","Pull the bar to your upper chest","Drive elbows down and think 'lats', not arms"]},
+ {day:4,name:"Seated Cable Row",sets:"3 × 12",rest:"superset ↓",muscle:"Mid-back · lats",view:"side",equip:"cable-low",twoArm:false,oneHand:true,
+   a:{sh:64,el:70,tl:4,hip:88,kn:2}, b:{sh:18,el:-8,tl:6,hip:88,kn:2},
+   cues:["Sit tall, slight lean forward to start","Pull to the belly, elbows past the torso","Squeeze shoulder blades, don't heave the torso"]},
+ {day:4,name:"Rear-delt Fly",sets:"3 × 15",rest:"60–75 sec rest",muscle:"Rear delts",view:"front",equip:"dumbbell",
+   a:{sh:34,el:30}, b:{sh:100,el:96},
+   cues:["Hinge forward, soft elbows","Raise out to the sides, pinkies up","Small weight — feel the rear delts, not traps"]},
+ {day:4,name:"Incline DB Curl",sets:"3 × 12",rest:"superset ↓",muscle:"Biceps (long head)",view:"side",equip:"dumbbell",bench:true,recline:-28,twoArm:false,
+   a:{sh:6,el:6,tl:0}, b:{sh:8,el:150,tl:0},
+   cues:["Lie back — let the arms hang behind you","That stretch at the bottom is the point","Curl without swinging the elbows forward"]},
+ {day:4,name:"Cable Curl",sets:"3 × 15",rest:"60–75 sec rest",muscle:"Biceps",view:"front",equip:"cable-low",
+   a:{sh:10,el:14}, b:{sh:14,el:158},
+   cues:["Constant tension — cable never goes slack","Elbows fixed at your sides","Squeeze hard at the top"]},
+
+ // DAY 5 LEGS ARMS SHOULDERS
+ {day:5,name:"Barbell Back Squat",sets:"3 × 8",rest:"~90 sec rest",muscle:"Quads · glutes",view:"side",equip:"barbell",twoArm:false,squatBar:true,
+   a:{sh:150,el:150,tl:6,hip:2,kn:2,bob:0}, b:{sh:150,el:150,tl:34,hip:-42,kn:28,bob:16},
+   cues:["Bar on your upper back, brace hard","Sit back and down, knees tracking toes","Hit at least parallel, drive up through mid-foot"]},
+ {day:5,name:"Romanian Deadlift",sets:"3 × 10",rest:"~90 sec rest",muscle:"Hamstrings · glutes · back",view:"side",equip:"barbell",twoArm:false,
+   a:{sh:2,el:2,tl:5,hip:0,kn:0,bob:0}, b:{sh:2,el:2,tl:66,hip:6,kn:12,bob:0},
+   cues:["Soft knees, push the hips back","Bar slides down the thighs/shins","Flat back — feel the hamstring stretch, then stand tall"]},
+ {day:5,name:"Arnold Press",sets:"3 × 12",rest:"superset ↓",muscle:"Shoulders (all heads)",view:"front",equip:"dumbbell",
+   a:{sh:130,el:148}, b:{sh:170,el:182},
+   cues:["Start palms facing you, rotate as you press","Full overhead lockout","Reverse the rotation on the way down"]},
+ {day:5,name:"Cable Lateral Raise",sets:"3 × 15",rest:"60–75 sec rest",muscle:"Side delts",view:"front",equip:"cable-low",
+   a:{sh:6,el:8}, b:{sh:86,el:88},
+   cues:["Cable behind you for tension at the bottom","Lead with the elbow to shoulder height","Strict — no leaning to cheat it up"]},
+ {day:5,name:"Barbell Curl",sets:"3 × 12",rest:"superset ↓",muscle:"Biceps",view:"front",equip:"barbell",
+   a:{sh:10,el:14}, b:{sh:14,el:164},
+   cues:["Elbows pinned, no swing","Higher reps today — keep it strict","Full stretch at the bottom each rep"]},
+ {day:5,name:"Rope Pushdown",sets:"3 × 15",rest:"60–75 sec rest",muscle:"Triceps",view:"front",equip:"cable-high",
+   a:{sh:12,el:82}, b:{sh:12,el:6},
+   cues:["Elbows locked at your sides","Spread the rope at the bottom","Finish the day with a strong squeeze"]},
+];
+
+const DAYS = {
+ 1:{title:"Push — Heavy",tag:"Chest · shoulders · triceps"},
+ 2:{title:"Pull — Heavy",tag:"Back · biceps"},
+ 3:{title:"Push — Hypertrophy",tag:"Chest · shoulders · triceps"},
+ 4:{title:"Pull — Hypertrophy",tag:"Back · biceps"},
+ 5:{title:"Legs, Arms & Shoulders",tag:"Full finisher"},
+};
+
+/* squat bar sits on shoulders, not hands — patch renderer via flag */
+const _origBuild = buildFigure;
+
+/* ---------- animation loop ---------- */
+let playing=true, speed=1, tPhase=0, lastTs=0;
+const cards=[]; // {ex, svg, node}
+
+function render(){
+  cards.forEach(c=>{
+    const per = c.ex.period||2.6;
+    const t = 0.5 - 0.5*Math.cos((tPhase/per)*Math.PI*2);
+    const fig = buildFigure(c.ex, t);
+    // squat bar override: draw on shoulders
+    if(c.ex.squatBar){
+      const pose=ipose(c.ex.a,c.ex.b,t);
+      const hip=[95,150+(pose.bob||0)];
+      const sc=[hip[0]+L.torso*Math.sin(R(pose.tl)), hip[1]-L.torso*Math.cos(R(pose.tl))];
+      drawBarbell(fig,[[sc[0],sc[1]-2]]);
+    }
+    c.svg.replaceChildren(fig);
+  });
+}
+function frame(ts){
+  if(!lastTs)lastTs=ts;
+  const dt=(ts-lastTs)/1000; lastTs=ts;
+  if(playing){ tPhase += dt*speed; }
+  render();
+  requestAnimationFrame(frame);
+}
+
+/* ---------- build DOM ---------- */
+function makeCard(ex,idx){
+  const card=document.createElement('div'); card.className='card'; card.dataset.day=ex.day;
+  const stage=document.createElement('div'); stage.className='stage';
+  const svg=el('svg',{viewBox:'0 0 220 240',preserveAspectRatio:'xMidYMid meet'});
+  stage.appendChild(svg);
+  const num=document.createElement('div'); num.className='num'; num.textContent='#'+(idx+1);
+  const pill=document.createElement('div'); pill.className='setpill'; pill.textContent=ex.sets;
+  stage.append(num,pill);
+  const body=document.createElement('div'); body.className='body';
+  const q = encodeURIComponent((ex.search||ex.name)+' proper form technique');
+  const demoUrl = 'https://www.youtube.com/results?search_query='+q;
+  body.innerHTML=`<p class="name">${ex.name}</p>
+    <p class="meta"><b>${ex.sets}</b> · ${ex.rest}</p>
+    <ul class="cues">${ex.cues.map(c=>`<li>${c}</li>`).join('')}</ul>
+    <div class="foot-links">
+      <a class="demo" href="${demoUrl}" target="_blank" rel="noopener noreferrer"><span class="yt">▶</span> Watch real demo</a>
+    </div>
+    <div><span class="muscle">${ex.muscle}</span></div>`;
+  card.append(stage,body);
+  body.querySelector('.demo').addEventListener('click',e=>e.stopPropagation());
+  card.addEventListener('click',()=>card.classList.toggle('open'));
+  cards.push({ex,svg,node:card});
+  return card;
+}
+
+function buildDays(){
+  const host=document.getElementById('days');
+  host.replaceChildren();
+  let i=0;
+  for(let d=1;d<=5;d++){
+    const sec=document.createElement('section'); sec.dataset.day=d;
+    const dh=document.createElement('div'); dh.className='dayhead';
+    dh.innerHTML=`<h2>Day ${d} — ${DAYS[d].title}</h2><span class="tag">${DAYS[d].tag}</span>`;
+    const grid=document.createElement('div'); grid.className='grid';
+    EX.forEach((ex,idx)=>{ if(ex.day===d){ grid.appendChild(makeCard(ex,idx)); } });
+    sec.append(dh,grid); host.appendChild(sec);
+  }
+}
+function buildTabs(){
+  const t=document.getElementById('tabs');
+  const mk=(label,d,sub)=>{const b=document.createElement('button');b.className='tab';b.innerHTML=`${label}${sub?`<span class="d">${sub}</span>`:''}`;b.dataset.day=d;b.onclick=()=>filter(d,b);return b;};
+  t.appendChild(mk('All days','all',''));
+  for(let d=1;d<=5;d++){ t.appendChild(mk('Day '+d,d,DAYS[d].title.split(' — ')[0].split(',')[0])); }
+  t.firstChild.classList.add('active');
+}
+function filter(d,btn){
+  document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('#days section').forEach(sec=>{
+    sec.style.display=(d==='all'||sec.dataset.day==d)?'':'none';
+  });
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+buildTabs(); buildDays();
+document.getElementById('speed').addEventListener('input',e=>{speed=parseFloat(e.target.value);});
+document.getElementById('playBtn').addEventListener('click',e=>{
+  playing=!playing; e.target.textContent=playing?'⏸ Pause':'▶ Play';
+});
+requestAnimationFrame(frame);
+</script>

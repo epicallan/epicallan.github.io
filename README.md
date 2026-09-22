@@ -1,55 +1,20 @@
----
-permalink: /index.html
----
+# lukwagoallan.com
 
-# epicallan.github.io
+Plain static site served by GitHub Pages from the `develop` branch, root path.
+No build step: edit the HTML, commit, push.
 
-Epicallan web page:
+## Layout
 
-* [lukwagoallan.com](https://lukwagoallan.com)
+| Path | Content |
+| --- | --- |
+| `index.html` | Home page: links to LinkedIn and GitHub |
+| `blog/` | The old Hakyll blog, kept as the HTML it last built. `blog/src/posts/` holds the markdown sources |
+| `upper-body-demos/` | Upper-body strength plan exercise demos |
+| `fat-loss-strength/` | Fat-loss and full-body strength 8-week plan |
+| `sql-notes/` | SQL notes in markdown |
+| `404.html` | Custom not-found page |
+| `CNAME` | Custom domain for GitHub Pages |
 
-Disclaimer: This blog is a modification and clone of the [kowainik blog](https://github.com/kowainik/kowainik.github.io)
+`.nojekyll` disables Jekyll processing so files are served exactly as committed.
 
-## How to update this web page
-
-If you want to change the content of a web page you need to perform
-the following steps:
-
-1. Make sure that you are on the `develop` branch
-2. Create new branch from `develop`, implement desired changes and open a pull request
-3. The person who merges the PR should build the project and deploy the new web
-   page content with the following command:
-
-```
-./scripts/deploy.sh "Some meaningful message"
-```
-
-## How to add a blog post
-
-If you want to add a new post you should create a markdown file in the `posts/`
-folder. The name of this file should contain the date of the post and some
-meaningful name. For example: `2018-11-05-epicallan-new-project.md`.
-
-In the `.md` file you should add next info in the following format:
-
-```
----
-title: Some really meaningful title that will appear at the page
-author: Your Name
-tags: haskell, stack, cabal, build-tools, tutorial
-description: Some short description
-useShortName: yes
----
-
-DO NOT COPY TITLE HERE!
-Here comes the body of the post itself
-
-## Important rules!!!
-
-* Use only `##` and upper for headers.
-* Avoid special characters in the headers names (including `\``).
-* Tags should be one-worders.
-
-...
-
-```
+The `master` branch holds the deploy history of the old Hakyll build and is no longer served.
