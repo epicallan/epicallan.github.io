@@ -1,6 +1,6 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Upper-Body Strength Plan — Exercise Demos</title>
+<title>Upper-Body Strength Plan (3-Day) — Exercise Demos</title>
 <style>
   :root{
     color-scheme: light;
@@ -90,6 +90,35 @@
   footer.foot{margin-top:30px; color:var(--muted); font-size:12.5px; border-top:1px solid var(--line); padding-top:16px}
   footer.foot b{color:var(--ink)}
   a{color:var(--accent2)}
+  /* ---------- numbers to beat ---------- */
+  .nextup{
+    display:flex; flex-wrap:wrap; align-items:center; gap:8px 14px;
+    background:var(--panel2); border:1px solid var(--accent); border-radius:12px;
+    padding:12px 14px; margin:4px 0 6px;
+  }
+  .nextup .lbl{font-size:12px; color:var(--muted); text-transform:uppercase; letter-spacing:.06em}
+  .nextup .what{font-size:16px; font-weight:650}
+  .nextup .when{font-size:13px; color:var(--muted)}
+  .nextup .rule{flex-basis:100%; font-size:12.5px; color:#cdd6e0; margin:0}
+  .beat{
+    background:var(--panel2); border:1px solid var(--line); border-radius:12px;
+    padding:10px 12px 8px; margin:0 0 12px; overflow-x:auto;
+  }
+  .beat h3{font-size:13px; margin:0 0 6px; color:var(--accent); letter-spacing:.02em}
+  .beat h3 span{color:var(--muted); font-weight:400}
+  .beat table{width:100%; border-collapse:collapse; font-size:13px; min-width:300px}
+  .beat th{text-align:left; font-weight:500; color:var(--muted); font-size:11px; text-transform:uppercase; letter-spacing:.05em; padding:4px 6px; border-bottom:1px solid var(--line)}
+  .beat td{padding:6px; border-bottom:1px solid var(--line); vertical-align:top}
+  .beat tr:last-child td{border-bottom:0}
+  .beat td.t{color:var(--good); font-weight:650; white-space:nowrap}
+  .beat td.l{white-space:nowrap}
+  .beat td .dt{display:block; color:var(--muted); font-size:11px}
+  .beat td.none{color:var(--muted); font-style:italic}
+  .cardbeat{
+    margin:8px 0 0; font-size:12px; color:var(--muted);
+    border-left:3px solid var(--good); padding:3px 0 3px 8px;
+  }
+  .cardbeat b{color:var(--good)}
   @media (max-width:520px){
     h1{font-size:22px}
     .grid{grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); gap:10px}
@@ -101,8 +130,8 @@
 
 <div class="wrap">
   <header class="top">
-    <h1>Upper-Body Strength Plan</h1>
-    <p class="sub">8-week, 5-day split · ~30 min sessions · supersets for volume. Tap a day to filter; drag the slider to change animation speed.</p>
+    <h1>Upper-Body Strength Plan — 3-Day</h1>
+    <p class="sub">Gym Mon / Wed / Fri, letters rotate A → B → C · ~35 min for the first 1–2 weeks (heavy lift + first superset), then ~45 min (full session) · swim on the other days, one activity per day. Missed a gym day? Do that letter next, don't skip it. Tap a day to filter; drag the slider to change animation speed.</p>
   </header>
 
   <div class="controls">
@@ -116,11 +145,13 @@
     </div>
   </div>
 
+  <div class="nextup" id="nextup"></div>
+
   <div id="days"></div>
 
   <footer class="foot">
     <p><b>Progressive overload is the whole game.</b> Each week beat last week — a little more weight or a rep or two on the main lifts. Log it in your WORKOUT.md; if you're not beating last week fairly often, you're not overloading.</p>
-    <p>Keep it to 30 min: ~3–4 min warm-up (light sets of the first lift), 60–75 s superset rest, ~2 min only on the heavy first lift, don't wander between sets. Protein 1.6–2.2 g/kg, 7+ hrs sleep — muscle is built in recovery.</p>
+    <p>Keep it inside the target (35 min on-ramp, then 45): ~3–4 min warm-up (light sets of the first lift), 60–75 s superset rest, ~2 min only on the heavy first lift. If you're running long, drop the <b>last</b> superset rather than rushing the compound. Protein 1.6–2.2 g/kg, 7+ hrs sleep: muscle is built during recovery.</p>
     <p style="opacity:.8">Figures are stylized demonstrations of the movement pattern, not form-perfect models. General fitness guidance, not medical advice — check with a professional if you have injuries or conditions.</p>
   </footer>
 </div>
@@ -287,101 +318,115 @@ function buildFigure(ex,t){
 /* ---------- exercise data ---------- */
 /* angle convention: 0=down, 90=right, 180=up, -90=left. front: right-arm sh/el positive=outward */
 const EX = [
- // DAY 1 PUSH HEAVY
+ // DAY A PUSH (Mon)
  {day:1,name:"Barbell Bench Press",sets:"4 × 5",rest:"~2 min rest",muscle:"Chest · triceps · front delt",view:"side",equip:"barbell",bench:true,recline:90,twoArm:false,
    a:{sh:172,el:18,hip:90,kn:0,tl:0}, b:{sh:180,el:180,hip:90,kn:0,tl:0},
    cues:["Shoulder blades pinned back and down","Lower the bar to mid-chest, drive up and slightly back","Feet planted, don't bounce off the chest"]},
+ {day:1,name:"Incline DB Press",sets:"3 × 10",rest:"~90 sec rest",muscle:"Upper chest · front delt",view:"side",equip:"dumbbell",bench:true,recline:42,twoArm:false,
+   a:{sh:150,el:70,hip:40,kn:-6,tl:0}, b:{sh:168,el:178,hip:40,kn:-6,tl:0},
+   cues:["Bench at ~30–45°","Lower to the upper chest, elbows ~45°","Press up and slightly together"]},
  {day:1,name:"Seated DB Shoulder Press",sets:"3 × 8",rest:"superset ↓",muscle:"Shoulders · triceps",view:"front",equip:"dumbbell",
    a:{sh:138,el:150}, b:{sh:168,el:180},
    cues:["Press up and slightly in, don't flare wide","Stop just short of locking out","Ribs down — don't arch the lower back"]},
  {day:1,name:"Lateral Raise",sets:"3 × 15",rest:"60–75 sec rest",muscle:"Side delts",view:"front",equip:"dumbbell",
    a:{sh:6,el:8}, b:{sh:86,el:88},
    cues:["Lead with the elbows, soft bend in the arm","Raise to shoulder height — no higher","Slow down on the way back, no swinging"]},
- {day:1,name:"Rope Triceps Pushdown",sets:"3 × 10",rest:"superset ↓",muscle:"Triceps",view:"front",equip:"cable-high",
+ {day:1,name:"Triceps Pushdown",sets:"3 × 12",rest:"superset ↓",muscle:"Triceps",view:"front",equip:"cable-high",
    a:{sh:12,el:82}, b:{sh:12,el:6},
-   cues:["Elbows glued to your sides","Spread the rope apart at the bottom","Control the return, don't let it yank you up"]},
- {day:1,name:"Overhead Triceps Extension",sets:"3 × 12",rest:"60–75 sec rest",muscle:"Triceps (long head)",view:"front",equip:"dumbbell",
-   a:{sh:178,el:118}, b:{sh:178,el:182},
-   cues:["Upper arms stay vertical by the ears","Lower behind the head for a deep stretch","Full lockout without flaring the elbows"]},
+   cues:["Elbows locked at your sides","Full extension, brief squeeze","Higher reps — chase the pump here"]},
+ {day:1,name:"Assisted Dips (or Overhead Extension)",sets:"3 × 10",rest:"60–75 sec rest",muscle:"Lower chest · triceps",view:"side",equip:"bars",twoArm:false,
+   a:{sh:184,el:184,tl:8,bob:0,hip:2,kn:2}, b:{sh:150,el:150,tl:14,bob:20,hip:2,kn:2},
+   cues:["Slight forward lean for chest emphasis","Lower until upper arms are parallel","Lock out at the top; sub close-grip push-ups if needed"]},
 
- // DAY 2 PULL HEAVY
- {day:2,name:"Weighted / Assisted Pull-up",sets:"4 × 6",rest:"~2 min rest",muscle:"Lats · biceps · mid-back",view:"front",equip:"pullbar",
+ // DAY B PULL (Wed)
+ {day:2,name:"Assisted Pull-up (or Lat Pulldown)",sets:"4 × 6",rest:"~2 min rest",muscle:"Lats · biceps · mid-back",view:"front",equip:"pullbar",
    a:{sh:162,el:178,bob:14}, b:{sh:120,el:150,bob:-6},
    cues:["Start from a full dead hang","Drive elbows down to your ribs","Chest to the bar, no kipping"]},
+ {day:2,name:"Seated Cable Row",sets:"3 × 10",rest:"~90 sec rest",muscle:"Mid-back · lats",view:"side",equip:"cable-low",twoArm:false,oneHand:true,
+   a:{sh:64,el:70,tl:4,hip:88,kn:2}, b:{sh:18,el:-8,tl:6,hip:88,kn:2},
+   cues:["Sit tall, slight lean forward to start","Pull to the belly, elbows past the torso","Squeeze shoulder blades, don't heave the torso"]},
  {day:2,name:"DB Row",sets:"3 × 8",rest:"superset ↓",muscle:"Lats · mid-back",view:"side",equip:"dumbbell",oneHand:true,twoArm:false,
    a:{sh:6,el:4,tl:70,hip:0,kn:0}, b:{sh:-24,el:-30,tl:70,hip:0,kn:0},
    cues:["Flat back, hinged ~70°","Pull the elbow past your torso, not out wide","Squeeze the shoulder blade at the top"]},
- {day:2,name:"Face Pull",sets:"3 × 15",rest:"60–75 sec rest",muscle:"Rear delts · rotator cuff",view:"front",equip:"cable-high",
+ {day:2,name:"Face Pull (or Rear-delt Fly)",sets:"3 × 15",rest:"60–75 sec rest",muscle:"Rear delts · rotator cuff",view:"front",equip:"cable-high",
    a:{sh:150,el:160}, b:{sh:112,el:214},
    cues:["Pull the rope toward your forehead","Elbows high, hands finish by your ears","Think 'pull apart' at the end"]},
  {day:2,name:"Barbell Curl",sets:"3 × 8",rest:"superset ↓",muscle:"Biceps",view:"front",equip:"barbell",
    a:{sh:10,el:14}, b:{sh:14,el:164},
    cues:["Elbows pinned to your sides","No swinging — lift with the biceps","Lower under control, full stretch at the bottom"]},
- {day:2,name:"Hammer Curl",sets:"3 × 12",rest:"60–75 sec rest",muscle:"Biceps · brachialis · forearm",view:"front",equip:"dumbbell-neutral",
-   a:{sh:10,el:14}, b:{sh:12,el:160},
-   cues:["Neutral grip — thumbs up throughout","Keep wrists straight","Control both directions, no momentum"]},
-
- // DAY 3 PUSH HYPERTROPHY
- {day:3,name:"Incline DB Press",sets:"4 × 10",rest:"~90 sec rest",muscle:"Upper chest · front delt",view:"side",equip:"dumbbell",bench:true,recline:42,twoArm:false,
-   a:{sh:150,el:70,hip:40,kn:-6,tl:0}, b:{sh:168,el:178,hip:40,kn:-6,tl:0},
-   cues:["Bench at ~30–45°","Lower to the upper chest, elbows ~45°","Press up and slightly together"]},
- {day:3,name:"Machine Chest Press",sets:"3 × 12",rest:"superset ↓",muscle:"Chest",view:"front",equip:"machine",
-   a:{sh:72,el:118}, b:{sh:30,el:22},
-   cues:["Handles at mid-chest height","Press together, squeeze at full extension","Don't let the stack slam on the return"]},
- {day:3,name:"Lateral Raise",sets:"3 × 15",rest:"60–75 sec rest",muscle:"Side delts",view:"front",equip:"dumbbell",
-   a:{sh:6,el:8}, b:{sh:86,el:88},
-   cues:["Lead with the elbows","Shoulder height, then control down","Lighter weight, strict form for reps"]},
- {day:3,name:"Dips",sets:"3 × 12",rest:"superset ↓",muscle:"Lower chest · triceps",view:"side",equip:"bars",twoArm:false,
-   a:{sh:184,el:184,tl:8,bob:0,hip:2,kn:2}, b:{sh:150,el:150,tl:14,bob:20,hip:2,kn:2},
-   cues:["Slight forward lean for chest emphasis","Lower until upper arms are parallel","Lock out at the top; sub close-grip push-ups if needed"]},
- {day:3,name:"Triceps Pushdown",sets:"3 × 15",rest:"60–75 sec rest",muscle:"Triceps",view:"front",equip:"cable-high",
-   a:{sh:12,el:82}, b:{sh:12,el:6},
-   cues:["Elbows locked at your sides","Full extension, brief squeeze","Higher reps — chase the pump here"]},
-
- // DAY 4 PULL HYPERTROPHY
- {day:4,name:"Wide-grip Lat Pulldown",sets:"4 × 10",rest:"~90 sec rest",muscle:"Lats · upper back",view:"front",equip:"pullbar",
-   a:{sh:158,el:176,bob:0}, b:{sh:118,el:150,bob:0},
-   cues:["Wide grip, slight lean back","Pull the bar to your upper chest","Drive elbows down and think 'lats', not arms"]},
- {day:4,name:"Seated Cable Row",sets:"3 × 12",rest:"superset ↓",muscle:"Mid-back · lats",view:"side",equip:"cable-low",twoArm:false,oneHand:true,
-   a:{sh:64,el:70,tl:4,hip:88,kn:2}, b:{sh:18,el:-8,tl:6,hip:88,kn:2},
-   cues:["Sit tall, slight lean forward to start","Pull to the belly, elbows past the torso","Squeeze shoulder blades, don't heave the torso"]},
- {day:4,name:"Rear-delt Fly",sets:"3 × 15",rest:"60–75 sec rest",muscle:"Rear delts",view:"front",equip:"dumbbell",
-   a:{sh:34,el:30}, b:{sh:100,el:96},
-   cues:["Hinge forward, soft elbows","Raise out to the sides, pinkies up","Small weight — feel the rear delts, not traps"]},
- {day:4,name:"Incline DB Curl",sets:"3 × 12",rest:"superset ↓",muscle:"Biceps (long head)",view:"side",equip:"dumbbell",bench:true,recline:-28,twoArm:false,
+ {day:2,name:"Incline DB Curl (or Hammer Curl)",sets:"3 × 12",rest:"60–75 sec rest",muscle:"Biceps (long head)",view:"side",equip:"dumbbell",bench:true,recline:-28,twoArm:false,
    a:{sh:6,el:6,tl:0}, b:{sh:8,el:150,tl:0},
    cues:["Lie back — let the arms hang behind you","That stretch at the bottom is the point","Curl without swinging the elbows forward"]},
- {day:4,name:"Cable Curl",sets:"3 × 15",rest:"60–75 sec rest",muscle:"Biceps",view:"front",equip:"cable-low",
-   a:{sh:10,el:14}, b:{sh:14,el:158},
-   cues:["Constant tension — cable never goes slack","Elbows fixed at your sides","Squeeze hard at the top"]},
 
- // DAY 5 LEGS ARMS SHOULDERS
- {day:5,name:"Barbell Back Squat",sets:"3 × 8",rest:"~90 sec rest",muscle:"Quads · glutes",view:"side",equip:"barbell",twoArm:false,squatBar:true,
+ // DAY C LEGS ARMS SHOULDERS (Fri)
+ {day:3,name:"Barbell Back Squat",sets:"3 × 8",rest:"~90 sec rest",muscle:"Quads · glutes",view:"side",equip:"barbell",twoArm:false,squatBar:true,
    a:{sh:150,el:150,tl:6,hip:2,kn:2,bob:0}, b:{sh:150,el:150,tl:34,hip:-42,kn:28,bob:16},
    cues:["Bar on your upper back, brace hard","Sit back and down, knees tracking toes","Hit at least parallel, drive up through mid-foot"]},
- {day:5,name:"Romanian Deadlift",sets:"3 × 10",rest:"~90 sec rest",muscle:"Hamstrings · glutes · back",view:"side",equip:"barbell",twoArm:false,
+ {day:3,name:"Romanian Deadlift",sets:"3 × 10",rest:"~90 sec rest",muscle:"Hamstrings · glutes · back",view:"side",equip:"barbell",twoArm:false,
    a:{sh:2,el:2,tl:5,hip:0,kn:0,bob:0}, b:{sh:2,el:2,tl:66,hip:6,kn:12,bob:0},
    cues:["Soft knees, push the hips back","Bar slides down the thighs/shins","Flat back — feel the hamstring stretch, then stand tall"]},
- {day:5,name:"Arnold Press",sets:"3 × 12",rest:"superset ↓",muscle:"Shoulders (all heads)",view:"front",equip:"dumbbell",
+ {day:3,name:"Arnold Press",sets:"3 × 12",rest:"superset ↓",muscle:"Shoulders (all heads)",view:"front",equip:"dumbbell",
    a:{sh:130,el:148}, b:{sh:170,el:182},
    cues:["Start palms facing you, rotate as you press","Full overhead lockout","Reverse the rotation on the way down"]},
- {day:5,name:"Cable Lateral Raise",sets:"3 × 15",rest:"60–75 sec rest",muscle:"Side delts",view:"front",equip:"cable-low",
+ {day:3,name:"Cable Lateral Raise",sets:"3 × 15",rest:"60–75 sec rest",muscle:"Side delts",view:"front",equip:"cable-low",
    a:{sh:6,el:8}, b:{sh:86,el:88},
    cues:["Cable behind you for tension at the bottom","Lead with the elbow to shoulder height","Strict — no leaning to cheat it up"]},
- {day:5,name:"Barbell Curl",sets:"3 × 12",rest:"superset ↓",muscle:"Biceps",view:"front",equip:"barbell",
+ {day:3,name:"Barbell Curl",sets:"3 × 12",rest:"superset ↓",muscle:"Biceps",view:"front",equip:"barbell",
    a:{sh:10,el:14}, b:{sh:14,el:164},
    cues:["Elbows pinned, no swing","Higher reps today — keep it strict","Full stretch at the bottom each rep"]},
- {day:5,name:"Rope Pushdown",sets:"3 × 15",rest:"60–75 sec rest",muscle:"Triceps",view:"front",equip:"cable-high",
+ {day:3,name:"Rope Pushdown",sets:"3 × 15",rest:"60–75 sec rest",muscle:"Triceps",view:"front",equip:"cable-high",
    a:{sh:12,el:82}, b:{sh:12,el:6},
    cues:["Elbows locked at your sides","Spread the rope at the bottom","Finish the day with a strong squeeze"]},
 ];
 
 const DAYS = {
- 1:{title:"Push — Heavy",tag:"Chest · shoulders · triceps"},
- 2:{title:"Pull — Heavy",tag:"Back · biceps"},
- 3:{title:"Push — Hypertrophy",tag:"Chest · shoulders · triceps"},
- 4:{title:"Pull — Hypertrophy",tag:"Back · biceps"},
- 5:{title:"Legs, Arms & Shoulders",tag:"Full finisher"},
+ 1:{title:"Push",tag:"chest · shoulders · triceps"},
+ 2:{title:"Pull",tag:"back · biceps · rear delts"},
+ 3:{title:"Legs, Arms & Shoulders",tag:"legs first, then supersets"},
+};
+const LETTER = {1:"A",2:"B",3:"C"};
+
+/* ---------- NUMBERS TO BEAT ----------
+   Update after every gym session (routine, from WORKOUT.md in the productivity folder):
+   - set `last` to what was actually done (barbell loads as TOTALS: bench bar 20kg, curl bar 10kg)
+   - set `beat` to next time's target: if every prescribed rep was hit, add the smallest
+     jump (barbell +2.5kg upper / +5kg legs, DB next pair up, cable next pin); otherwise
+     keep the weight and add a rep or a set
+   - move `next` / `nextDate` to the following letter in the A → B → C rotation
+   Keys must match the exercise `name` in EX exactly. `from` notes when the number came
+   from a different variation (e.g. pre-09-28 5-day split). */
+const TO_BEAT = {
+  updated:"2026-09-30",
+  next:"A", nextDate:"Fri 10-02",
+  lifts:{
+    // Day A — last run as Push-hypertrophy on 09-25 (old 5-day split)
+    "Barbell Bench Press":            {last:"40kg · 4×3",       date:"09-25", beat:"40kg · 4×4"},
+    "Incline DB Press":               {last:"7.5kg/arm · 4×10", date:"09-25", beat:"10kg/arm · 3×8"},
+    "Seated DB Shoulder Press":       {last:"7.5kg/arm · 3×8",  date:"09-21", beat:"7.5kg/arm · 3×10"},
+    "Lateral Raise":                  {last:"5kg/arm · 5×12",   date:"09-25", beat:"5kg/arm · 3×15"},
+    "Triceps Pushdown":               {last:"30kg · 3×15",      date:"09-25", beat:"35kg · 3×12"},
+    "Assisted Dips (or Overhead Extension)": {last:"55kg assist · 3×4", date:"09-25", beat:"55kg assist · 3×6"},
+    // Day B — 09-28 Pull
+    "Assisted Pull-up (or Lat Pulldown)": {last:"Lat pulldown 40kg · 4×10", date:"09-28", beat:"Lat pulldown 45kg · 4×8"},
+    "Seated Cable Row":               {last:"40kg · 3×10",      date:"09-28", beat:"45kg · 3×10"},
+    "DB Row":                         {last:"10kg · 3×8",       date:"09-24", beat:"12.5kg · 3×8"},
+    "Face Pull (or Rear-delt Fly)":   {last:"Rear-delt fly 5kg/arm · 3×12", date:"09-28", beat:"Rear-delt fly 5kg/arm · 3×15"},
+    "Barbell Curl":                   {last:"25kg · 3×10",      date:"09-30", beat:"27.5kg · 3×8"},
+    "Incline DB Curl (or Hammer Curl)": {last:"10kg/arm · 3×5", date:"09-28", beat:"10kg/arm · 3×6"},
+    // Day C — 09-30, first run of the 3-day split
+    "Barbell Back Squat":             {last:"40kg · 3×8",       date:"09-30", beat:"45kg · 3×8"},
+    "Romanian Deadlift":              {last:"40kg · 3×8",       date:"09-30", beat:"40kg · 3×10"},
+    "Arnold Press":                   {last:"7.5kg/arm · 3×15", date:"09-30", beat:"10kg/arm · 3×10"},
+    "Cable Lateral Raise":            null, // no baseline yet — set one
+    "Barbell Curl@C":                 {last:"25kg · 3×10",      date:"09-30", beat:"25kg · 3×12"},
+    "Rope Pushdown":                  {last:"35kg · 3×10",      date:"09-21", beat:"35kg · 3×12"},
+  }
+};
+/* Barbell Curl appears on both B and C with different rep targets; C's entry is keyed "Barbell Curl@C". */
+const beatFor = ex => {
+  const L = TO_BEAT.lifts;
+  const k = ex.day===3 && (ex.name+'@C') in L ? ex.name+'@C' : ex.name;
+  return k in L ? L[k] : undefined;
 };
 
 /* squat bar sits on shoulders, not hands — patch renderer via flag */
@@ -428,6 +473,9 @@ function makeCard(ex,idx){
   const demoUrl = 'https://www.youtube.com/results?search_query='+q;
   body.innerHTML=`<p class="name">${ex.name}</p>
     <p class="meta"><b>${ex.sets}</b> · ${ex.rest}</p>
+    ${(()=>{const b=beatFor(ex); if(b===undefined) return '';
+       return b ? `<p class="cardbeat">Last ${b.last} <span style="opacity:.7">(${b.date})</span> → <b>Beat ${b.beat}</b></p>`
+                : `<p class="cardbeat">No number yet → <b>set a baseline</b></p>`;})()}
     <ul class="cues">${ex.cues.map(c=>`<li>${c}</li>`).join('')}</ul>
     <div class="foot-links">
       <a class="demo" href="${demoUrl}" target="_blank" rel="noopener noreferrer"><span class="yt">▶</span> Watch real demo</a>
@@ -444,20 +492,44 @@ function buildDays(){
   const host=document.getElementById('days');
   host.replaceChildren();
   let i=0;
-  for(let d=1;d<=5;d++){
+  for(let d=1;d<=3;d++){
     const sec=document.createElement('section'); sec.dataset.day=d;
     const dh=document.createElement('div'); dh.className='dayhead';
-    dh.innerHTML=`<h2>Day ${d} — ${DAYS[d].title}</h2><span class="tag">${DAYS[d].tag}</span>`;
+    dh.innerHTML=`<h2>Day ${LETTER[d]} — ${DAYS[d].title}</h2><span class="tag">${DAYS[d].tag}</span>`;
     const grid=document.createElement('div'); grid.className='grid';
     EX.forEach((ex,idx)=>{ if(ex.day===d){ grid.appendChild(makeCard(ex,idx)); } });
-    sec.append(dh,grid); host.appendChild(sec);
+    sec.append(dh,beatTable(d),grid); host.appendChild(sec);
   }
+}
+function beatTable(d){
+  const box=document.createElement('div'); box.className='beat';
+  const rows=EX.filter(ex=>ex.day===d).map(ex=>{
+    const b=beatFor(ex);
+    if(!b) return `<tr><td>${ex.name}</td><td class="none" colspan="2">No number yet — set a baseline</td></tr>`;
+    return `<tr><td>${ex.name}</td><td class="l">${b.last}<span class="dt">${b.date}</span></td><td class="t">${b.beat}</td></tr>`;
+  }).join('');
+  box.innerHTML=`<h3>Numbers to beat <span>· updated ${TO_BEAT.updated}</span></h3>
+    <table><thead><tr><th>Lift</th><th>Last</th><th>Beat</th></tr></thead><tbody>${rows}</tbody></table>`;
+  return box;
+}
+function buildNextUp(){
+  const L=TO_BEAT.next, d=+Object.keys(LETTER).find(k=>LETTER[k]===L);
+  const n=document.getElementById('nextup');
+  n.innerHTML=`<span class="lbl">Next up</span>
+    <span class="what">Day ${L} — ${DAYS[d].title}</span>
+    <span class="when">${TO_BEAT.nextDate}</span>
+    <button class="btn" id="goNext">Show Day ${L} numbers</button>
+    <p class="rule">Hit every prescribed rep → add the smallest jump next time. Missed reps → same weight, one more rep. Barbell loads are totals (bar + plates).</p>`;
+  n.querySelector('#goNext').onclick=()=>{
+    const btn=[...document.querySelectorAll('.tab')].find(b=>b.dataset.day==d);
+    if(btn) filter(d,btn);
+  };
 }
 function buildTabs(){
   const t=document.getElementById('tabs');
   const mk=(label,d,sub)=>{const b=document.createElement('button');b.className='tab';b.innerHTML=`${label}${sub?`<span class="d">${sub}</span>`:''}`;b.dataset.day=d;b.onclick=()=>filter(d,b);return b;};
   t.appendChild(mk('All days','all',''));
-  for(let d=1;d<=5;d++){ t.appendChild(mk('Day '+d,d,DAYS[d].title.split(' — ')[0].split(',')[0])); }
+  for(let d=1;d<=3;d++){ t.appendChild(mk('Day '+LETTER[d],d,DAYS[d].title.split(',')[0])); }
   t.firstChild.classList.add('active');
 }
 function filter(d,btn){
@@ -469,7 +541,7 @@ function filter(d,btn){
   window.scrollTo({top:0,behavior:'smooth'});
 }
 
-buildTabs(); buildDays();
+buildTabs(); buildDays(); buildNextUp();
 document.getElementById('speed').addEventListener('input',e=>{speed=parseFloat(e.target.value);});
 document.getElementById('playBtn').addEventListener('click',e=>{
   playing=!playing; e.target.textContent=playing?'⏸ Pause':'▶ Play';
