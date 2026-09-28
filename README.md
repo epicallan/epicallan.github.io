@@ -9,7 +9,8 @@ No build step: edit the HTML, commit, push.
 | --- | --- |
 | `index.html` | Home page: links to LinkedIn and GitHub |
 | `blog/` | The old Hakyll blog, kept as the HTML it last built. `blog/src/posts/` holds the markdown sources |
-| `upper-body-demos/` | Upper-body strength plan exercise demos |
+| `upper-body-3day/` | Upper-body strength plan, 3-day version (Mon/Wed/Fri, since 2026-09-28): exercise demos |
+| `upper-body-demos/` | Upper-body strength plan exercise demos (original 5-day split, retired 2026-09-28) |
 | `fat-loss-strength/` | Fat-loss and full-body strength 8-week plan |
 | `sql-notes/` | SQL notes in markdown |
 | `404.html` | Custom not-found page |
