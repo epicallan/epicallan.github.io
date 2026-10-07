@@ -368,9 +368,9 @@ const EX = [
  {day:3,name:"Arnold Press",sets:"3 × 12",rest:"superset ↓ no rest, go straight into the next one",muscle:"Shoulders (all heads)",view:"front",equip:"dumbbell",
    a:{sh:130,el:148}, b:{sh:170,el:182},
    cues:["Start palms facing you, rotate as you press","Full overhead lockout","Reverse the rotation on the way down"]},
- {day:3,name:"Cable Lateral Raise",sets:"3 × 15",rest:"2 min after each pair · 3 min, then next exercise",muscle:"Side delts",view:"front",equip:"cable-low",
+ {day:3,name:"DB Lateral Raise",sets:"3 × 15",rest:"2 min after each pair · 3 min, then next exercise",muscle:"Side delts",view:"front",equip:"dumbbell",
    a:{sh:6,el:8}, b:{sh:86,el:88},
-   cues:["Cable behind you for tension at the bottom","Lead with the elbow to shoulder height","Strict — no leaning to cheat it up"]},
+   cues:["Lead with the elbows, soft bend in the arm","Raise to shoulder height — no higher","Strict — no leaning or swinging to cheat it up"]},
  {day:3,name:"Barbell Curl",sets:"3 × 12",rest:"superset ↓ no rest, go straight into the next one",muscle:"Biceps",view:"front",equip:"barbell",
    a:{sh:10,el:14}, b:{sh:14,el:164},
    cues:["Elbows pinned, no swing","Higher reps today — keep it strict","Full stretch at the bottom each rep"]},
@@ -396,8 +396,8 @@ const LETTER = {1:"A",2:"B",3:"C"};
    Keys must match the exercise `name` in EX exactly. `from` notes when the number came
    from a different variation (e.g. pre-09-28 5-day split). */
 const TO_BEAT = {
-  updated:"2026-10-05",
-  next:"C", nextDate:"Wed 10-07",
+  updated:"2026-10-07",
+  next:"A", nextDate:"Fri 10-09",
   lifts:{
     // Day A — 10-02 Push, first run of the 3-day split
     "Barbell Bench Press":            {last:"40kg · 5×5",       date:"10-02", beat:"42.5kg · 4×5"},
@@ -414,11 +414,11 @@ const TO_BEAT = {
     "Barbell Curl":                   {last:"25kg · 2×8", date:"10-05", beat:"25kg · 3×8"},
     "Incline DB Curl (or Hammer Curl)": {last:"10kg/arm · 3×5", date:"09-28", beat:"10kg/arm · 3×6"},
     // Day C — 09-30, first run of the 3-day split
-    "Barbell Back Squat":             {last:"40kg · 3×8",       date:"09-30", beat:"45kg · 3×8"},
-    "Romanian Deadlift":              {last:"40kg · 3×8",       date:"09-30", beat:"40kg · 3×10"},
-    "Arnold Press":                   {last:"7.5kg/arm · 3×15", date:"09-30", beat:"10kg/arm · 3×10"},
-    "Cable Lateral Raise":            null, // no baseline yet — set one
-    "Barbell Curl@C":                 {last:"25kg · 3×10",      date:"09-30", beat:"25kg · 3×12"},
+    "Barbell Back Squat":             {last:"45kg · 3×8",       date:"10-07", beat:"50kg · 3×8"},
+    "Romanian Deadlift":              {last:"40kg · 3×10",      date:"10-07", beat:"45kg · 3×10"},
+    "Arnold Press":                   {last:"10kg/arm · 3×10",  date:"10-07", beat:"12.5kg/arm · 3×10"},
+    "DB Lateral Raise":               null, // swapped for cable lateral raise 10-07 (no cable station); baseline = Day A lateral raise, 5kg/arm
+    "Barbell Curl@C":                 {last:"25kg · 12/8/8",    date:"10-07", beat:"25kg · 3×9 (then 3×12)"},
     "Rope Pushdown":                  {last:"35kg · 3×10",      date:"09-21", beat:"35kg · 3×12"},
   }
 };
