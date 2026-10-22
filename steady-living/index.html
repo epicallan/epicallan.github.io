@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Steady Living — a weekly hour of practical philosophy in Kigali</title>
+  <meta name="description" content="A small weekly circle in Kigali: ten minutes of silence, one short passage from the Stoics, Epicureans or Buddhists, and an honest round on how the week went. No religion, no performance, no reading required.">
+  <link rel="icon" href="/favicon.ico">
+  <style>
+    :root {
+      color-scheme: light dark;
+      --bg: #faf7f2; --ink: #1f1d1a; --muted: #6b655c; --line: #e4ddd1;
+      --panel: #ffffff; --accent: #2f6f5e; --accent-soft: rgba(47,111,94,.1);
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #151412; --ink: #ece7df; --muted: #a39b8f; --line: #2d2a26;
+        --panel: #1d1b18; --accent: #7fc4ad; --accent-soft: rgba(127,196,173,.12);
+      }
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; background: var(--bg); color: var(--ink);
+      font: 18px/1.65 Georgia, "Iowan Old Style", "Palatino Linotype", "Book Antiqua", serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    main { max-width: 42rem; margin: 0 auto; padding: 3rem 1.25rem 5rem; }
+    h1 { font-size: 2.4rem; line-height: 1.15; font-weight: 600; margin: 0 0 .5rem; letter-spacing: -.01em; }
+    h2 { font-size: 1.35rem; font-weight: 600; margin: 3rem 0 .75rem; }
+    p { margin: 0 0 1rem; }
+    a { color: var(--accent); }
+    .kicker { color: var(--muted); font-size: 1rem; margin: 0 0 2.5rem; }
+    .question {
+      font-size: 1.45rem; line-height: 1.4; font-style: italic;
+      border-left: 3px solid var(--accent); padding: .25rem 0 .25rem 1.1rem; margin: 2rem 0;
+    }
+    .pills { display: flex; flex-wrap: wrap; gap: .5rem; margin: 1rem 0 0; padding: 0; list-style: none; }
+    .pills li {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      font-size: .85rem; color: var(--accent); background: var(--accent-soft);
+      border-radius: 999px; padding: .3rem .8rem;
+    }
+    .hour { list-style: none; margin: 1rem 0 0; padding: 0; border-top: 1px solid var(--line); }
+    .hour li {
+      display: grid; grid-template-columns: 4.5rem 1fr; gap: 1rem; align-items: baseline;
+      padding: .8rem 0; border-bottom: 1px solid var(--line);
+    }
+    .hour .t {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      font-size: .85rem; color: var(--muted); white-space: nowrap;
+    }
+    .hour b { display: block; font-weight: 600; }
+    .hour span { color: var(--muted); font-size: .95rem; }
+    .rules { padding-left: 1.3rem; margin: 0; }
+    .rules li { margin: 0 0 .6rem; }
+    .rules b { font-weight: 600; }
+    .schools { display: grid; gap: .75rem; margin: 1rem 0 0; padding: 0; list-style: none; }
+    .schools li { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: .9rem 1.1rem; }
+    .schools b { display: block; font-weight: 600; margin-bottom: .15rem; }
+    .schools span { color: var(--muted); font-size: .95rem; }
+    .two { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1rem; }
+    .two div { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 1rem 1.1rem; }
+    .two h3 { margin: 0 0 .5rem; font-size: 1rem; font-weight: 600; }
+    .two ul { margin: 0; padding-left: 1.1rem; font-size: .95rem; }
+    .two li { margin-bottom: .3rem; }
+    @media (max-width: 560px) { .two { grid-template-columns: 1fr; } }
+    .join {
+      margin-top: 3rem; background: var(--accent-soft); border: 1px solid var(--accent);
+      border-radius: 14px; padding: 1.4rem 1.5rem;
+    }
+    .join h2 { margin-top: 0; }
+    .join dl { margin: 0 0 1rem; display: grid; grid-template-columns: auto 1fr; gap: .35rem 1rem; }
+    .join dt { color: var(--muted); font-size: .95rem; }
+    .join dd { margin: 0; }
+    .join p:last-child { margin-bottom: 0; }
+    .fill { border-bottom: 2px dashed var(--accent); }
+    footer { margin-top: 3rem; color: var(--muted); font-size: .9rem; }
+    footer a { color: inherit; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Steady Living</h1>
+    <p class="kicker">A weekly hour of practical philosophy in Kigali.</p>
+
+    <p>Every week, a few of us sit down for one hour. Ten minutes of silence, one short passage from someone who thought hard about how to live, and an honest round on how the week actually went.</p>
+
+    <p class="question">How do you stay steady when work, family and your own impulses all pull at you?</p>
+
+    <p>People have been working on that question for over two thousand years. We borrow from all of them: the Stoics, Epicurus, Buddhist thought, Aristotle. They disagree with each other in useful ways, and none of them get the last word. They are lenses, not a creed.</p>
+
+    <ul class="pills">
+      <li>No religion</li>
+      <li>No performance</li>
+      <li>No reading required</li>
+      <li>One hour, same time every week</li>
+    </ul>
+
+    <h2>Why it exists</h2>
+    <p>Kigali has plenty of church and cell-group communities, and a few yoga studios. It has almost nothing for people who want a reflective, secular practice: a place to slow down, look at the week honestly, and be heard without being advised or recruited. This circle sets out to fill that gap.</p>
+
+    <h2>The hour</h2>
+    <ul class="hour">
+      <li><span class="t">5 min</span><div><b>Arrive and settle</b><span>Phones away. Quick hellos.</span></div></li>
+      <li><span class="t">10 min</span><div><b>Silent sitting</b><span>Eyes closed or a soft gaze. Someone keeps time with a quiet timer.</span></div></li>
+      <li><span class="t">5 min</span><div><b>One passage, read aloud</b><span>Short enough to take in on a first hearing. Read twice, slowly.</span></div></li>
+      <li><span class="t">25 min</span><div><b>The round</b><span>Each person has about four minutes on the week's question. No advice, no cross-talk. This is the heart of the hour.</span></div></li>
+      <li><span class="t">10 min</span><div><b>Open question</b><span>One question from the passage, talked through together.</span></div></li>
+      <li><span class="t">5 min</span><div><b>Silence and close</b><span>A minute of quiet, then one line each: what I'll carry into the week.</span></div></li>
+    </ul>
+    <p style="margin-top:1rem">A typical question for the round: <em>Where did I hold the line this week, and where did I bend?</em></p>
+
+    <h2>What we read</h2>
+    <p>One school at a time, a month each, one short passage a week. The passage and the question go out the day before, so you can read them in thirty seconds if you want to. You don't have to.</p>
+    <ul class="schools">
+      <li><b>Stoicism</b><span>What is and isn't in your control. Your judgment of a thing versus the thing itself. Getting up and doing the work.</span></li>
+      <li><b>Epicurus</b><span>Which desires are worth feeding. Pleasures that cost you later. Friendship as the thing that most makes a life good.</span></li>
+      <li><b>Buddhist thought, kept secular</b><span>How mood shapes what you see. The second arrow: pain is the first, your reaction adds the second. Watching an urge rise and pass.</span></li>
+      <li><b>Aristotle</b><span>We become what we repeatedly do. Character as habit.</span></li>
+    </ul>
+
+    <h2>How we keep it honest</h2>
+    <ol class="rules">
+      <li><b>No creed, no recruiting.</b> Nobody has to believe anything. Religious people are welcome; nobody is converted to or from anything.</li>
+      <li><b>A practice circle, not a debate club.</b> We test ideas against our weeks, not against each other.</li>
+      <li><b>What's said here stays here.</b> Share the ideas freely, not other people's stories.</li>
+      <li><b>No advice unless asked.</b> Listening is the gift.</li>
+      <li><b>Pass is always allowed.</b> "I'll pass this week" is a complete answer.</li>
+      <li><b>Start and end on time.</b> The hour is protected. That's part of the practice.</li>
+    </ol>
+
+    <div class="two">
+      <div>
+        <h3>It is</h3>
+        <ul>
+          <li>Small: three to six people</li>
+          <li>Fixed: same slot every week</li>
+          <li>Low-commitment: a four-week trial, then we decide together</li>
+          <li>Open to anyone, with or without a background in any of this</li>
+        </ul>
+      </div>
+      <div>
+        <h3>It isn't</h3>
+        <ul>
+          <li>A religious or spiritual group</li>
+          <li>A lecture or a reading seminar</li>
+          <li>Therapy, or a place to be fixed</li>
+          <li>Something you need to prepare for</li>
+        </ul>
+      </div>
+    </div>
+
+    <section class="join">
+      <h2>Join the first four weeks</h2>
+      <dl>
+        <dt>When</dt><dd>Saturdays, 5:30 to 6:30 pm</dd>
+        <dt>Where</dt><dd><span class="fill">[venue]</span>, Kigali</dd>
+        <dt>Starts</dt><dd><span class="fill">[date]</span></dd>
+      </dl>
+      <p>Three people is enough to begin. If this sounds like your kind of hour, message <span class="fill">Allan</span> on WhatsApp at <span class="fill">+256 771 849086</span> and come to the first one.</p>
+    </section>
+
+    <footer>
+      <p>Hosted by <a href="/">Lukwago Allan</a>. Texts are public domain: Marcus Aurelius, Epictetus, Epicurus, the Dhammapada, Aristotle.</p>
+    </footer>
+  </main>
+</body>
+</html>

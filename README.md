@@ -13,6 +13,7 @@ No build step: edit the HTML, commit, push.
 | `upper-body-demos/` | Upper-body strength plan exercise demos (original 5-day split, retired 2026-09-28) |
 | `fat-loss-strength/` | Fat-loss and full-body strength 8-week plan |
 | `sql-notes/` | SQL notes in markdown |
+| `steady-living/` | Steady Living, a weekly practical-philosophy circle in Kigali: public page at `index.html`, planning docs in the markdown files |
 | `404.html` | Custom not-found page |
 | `CNAME` | Custom domain for GitHub Pages |
 
