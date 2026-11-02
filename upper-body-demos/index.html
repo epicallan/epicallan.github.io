@@ -362,7 +362,7 @@ const EX = [
  {day:3,name:"Barbell Back Squat",sets:"3 × 8",rest:"2 min between sets · 3 min, then next exercise",muscle:"Quads · glutes",view:"side",equip:"barbell",twoArm:false,squatBar:true,
    a:{sh:150,el:150,tl:6,hip:2,kn:2,bob:0}, b:{sh:150,el:150,tl:34,hip:-42,kn:28,bob:16},
    cues:["Bar on your upper back, brace hard","Sit back and down, knees tracking toes","Hit at least parallel, drive up through mid-foot"]},
- {day:3,name:"Romanian Deadlift",sets:"3 × 10",rest:"2 min between sets · 3 min, then next exercise",muscle:"Hamstrings · glutes · back",view:"side",equip:"barbell",twoArm:false,
+ {day:3,name:"Romanian Deadlift",sets:"3 × 5",rest:"2 min between sets · 3 min, then next exercise",muscle:"Hamstrings · glutes · back",view:"side",equip:"barbell",twoArm:false,
    a:{sh:2,el:2,tl:5,hip:0,kn:0,bob:0}, b:{sh:2,el:2,tl:66,hip:6,kn:12,bob:0},
    cues:["Start standing; the bar never touches the floor","Knees soft and fixed, push the hips back to mid-shin","Flat back, feel the hamstring stretch, then stand tall"]},
  {day:3,name:"Arnold Press",sets:"3 × 12",rest:"superset ↓ no rest, go straight into the next one",muscle:"Shoulders (all heads)",view:"front",equip:"dumbbell",
@@ -423,14 +423,14 @@ const SUFFIX = {3:"@C",4:"@Sat",5:"@Sun"};
    Keys must match the exercise `name` in EX exactly. `from` notes when the number came
    from a different variation (e.g. pre-09-28 5-day split). */
 const TO_BEAT = {
-  updated:"2026-11-01",
-  next:"C", nextDate:"Mon 11-02",
+  updated:"2026-11-07",
+  next:"C", nextDate:"Mon 11-09",
   lifts:{
-    // Day A — 10-28 Push (Wednesday)
-    "Barbell Bench Press":            {last:"45kg · 7/7/6/8 (8th rep assisted)", date:"10-28", beat:"47.5kg · 4×5"},
-    "Incline DB Press":               {last:"14kg/arm · 3×9", date:"10-28", beat:"14kg/arm · 3×10, then 16kg"},
-    "Seated DB Shoulder Press":       {last:"12kg/arm · 3×8", date:"10-28", beat:"14kg/arm · 3×8"},
-    "Lateral Raise":                  {last:"6kg/arm · 3×9 (partial form failure on the last rep)", date:"10-28", beat:"6kg/arm · 3×9 clean, then 3×10"},
+    // Day A — 11-04 Push (Wednesday)
+    "Barbell Bench Press":            {last:"50kg · 4×4, minor assist on the 4th rep of each set", date:"11-04", beat:"50kg · 4×4 unassisted, then 4×5 (count unassisted reps only)"},
+    "Incline DB Press":               {last:"14kg/arm · 3×10; weaker left arm added 2×8 at 6kg", date:"11-04", beat:"16kg/arm · 3×10"},
+    "Seated DB Shoulder Press":       {last:"14kg/arm · 6/6/7; weaker left arm added 2×7 at 6kg", date:"11-04", beat:"14kg/arm · 3×7, then 3×8"},
+    "Lateral Raise":                  {last:"1×10 (one set only, weight not reported; 6kg/arm · 3×9 on 10-28)", date:"11-04", beat:"6kg/arm · 3×9 clean, then 3×10"},
     "Triceps Pushdown":               {last:"12.5kg · 12/12/13 (same machine, corrected form, failure on last rep: new form baseline)", date:"10-24", beat:"12.5kg · 3×13 clean, then the next pin"},
     "Assisted Dips (or Overhead Extension)": null, // NOTE 10-17: no assisted-dip machine at the Uganda gym; skipped on 10-17. Last numbers were 55kg assist · 3×6 (10-09). Use Overhead Extension here until back home.
     // Day B — 10-30 Pull (Friday)
@@ -440,16 +440,16 @@ const TO_BEAT = {
     "Face Pull (or Rear-delt Fly)":   {last:"Bent-over rear-delt fly · 12/10/13 (weight not reported; 2kg on 10-25)", date:"10-30", beat:"Same weight · 3×12, then the next pair up"},
     "Barbell Curl":                   {last:"25kg · 2×8", date:"10-05", beat:"25kg · 3×8"},
     "Incline DB Curl (or Hammer Curl)": {last:"8kg/arm · 11/10/9", date:"10-25", beat:"8kg/arm · 3×11, then 10kg/arm"},
-    // Day C — 10-26 Legs-arms-shoulders (squat form reset with the coach)
-    "Barbell Back Squat":             {last:"20kg · 4×10 (form reset with the coach, correct form; was 55kg · 3×8 on 10-23)", date:"10-26", beat:"30kg · 3×8 in the coached form (Saturday reached 30kg; Day C stays at or above it)"},
-    "Romanian Deadlift":              {last:"No true RDL logged yet: the earlier rows (up to 50kg on 10-23) were conventional deadlifts", date:"11-01", beat:"Light, 30–40kg · 3×10, with the coach checking form (fresh RDL baseline)"},
-    "Arnold Press":                   {last:"12kg/arm · 10/8/8 (still feels hard)", date:"10-26", beat:"12kg/arm · 3×9, then 3×10 clean before 14kg (Allan's call, 10-26)"},
-    "DB Lateral Raise":               null, // swapped for cable lateral raise 10-07 (no cable station); baseline = Day A lateral raise, 5kg/arm
+    // Day C — 11-02 Legs-arms-shoulders (Monday)
+    "Barbell Back Squat":             {last:"30kg · 5/6/6", date:"11-02", beat:"30kg · 3×7, then 3×8 (same weight until 3×8 is clean)"},
+    "Romanian Deadlift":              {last:"60kg · 5/6/6 (done on Saturday 11-07 in place of the conventional deadlift)", date:"11-07", beat:"65kg · 3×5 (if Monday comes <48h after Saturday and legs feel heavy, hold 60kg · 3×5)"},
+    "Arnold Press":                   {last:"12kg/arm · 10/9/8; weaker left arm added 2×7 at 6kg", date:"11-02", beat:"12kg/arm · 3×9, then 3×10 clean before 14kg"},
+    "DB Lateral Raise":               {last:"6kg/arm · 10/9/10 (form failure at 10)", date:"11-02", beat:"6kg/arm · 3×10 clean, then build toward 3×15"},
     "Barbell Curl@C":                 {last:"25kg · 3×9",       date:"10-26", beat:"25kg · 3×10 (then 3×12)"},
     "Rope Pushdown":                  {last:"35kg · 3×10",      date:"09-21", beat:"35kg · 3×12"},
     // Saturday volume (extra, added 10-28) — Sat 10-31
-    "Barbell Bench Press@Sat":        {last:"40kg · 12/10/10", date:"10-31", beat:"42.5kg · 3×8"},
-    "Barbell Back Squat@Sat":         {last:"30kg · 4/4/3 (struggle on the last reps)", date:"10-31", beat:"30kg · 3×5 clean, then build reps toward 3×8"},
+    "Barbell Bench Press@Sat":        {last:"50kg · 7 (7th rep assisted)/5/5, at the Day A weight", date:"11-07", beat:"42.5kg · 3×8 (volume day: stay below Day A's 50kg)"},
+    "Barbell Back Squat@Sat":         {last:"30kg · 3×5 clean", date:"11-07", beat:"30kg · 3×6, building toward 3×8"},
     "Conventional Deadlift@Sat":      {last:"70kg · 3×5, coached form (struggle on the last rep)", date:"10-31", beat:"70kg · 3×5 clean, then +2.5–5kg"},
     // Sunday optional light pull (extra, added 10-28) — Sun 11-01
     "Lat Pulldown@Sun":               {last:"40kg · 9/9/8, stricter form", date:"11-01", beat:"40kg · 3×10"},
