@@ -417,19 +417,19 @@ const EX = [
  // HOME LIGHT (Break 2; added 11-11): rotate small muscles, about half the hard weight, stop with 5+ reps left
  {day:7,name:"Lateral Raise",sets:"2–3 × 15–20",rest:"Break 2 · Mon & Wed · stop with 5+ reps left",muscle:"Side delts",view:"front",equip:"dumbbell",search:"Dumbbell Lateral Raise",
    a:{sh:6,el:8}, b:{sh:86,el:88},
-   cues:["About 4–5kg: easy, almost too easy","Lead with the elbows, stop at shoulder height","If it burns at the end, drop the weight"]},
+   cues:["About 4kg: easy, almost too easy","Lead with the elbows, stop at shoulder height","If it burns at the end, drop the weight"]},
  {day:7,name:"Bent-over Rear-delt Fly",sets:"2–3 × 15–20",rest:"Break 2 · Mon, Thu & Fri · stop with 5+ reps left",muscle:"Rear delts · upper back",view:"front",equip:"dumbbell",search:"Bent Over Dumbbell Rear Delt Fly",
    a:{sh:6,el:8}, b:{sh:78,el:80},
    cues:["Hinge forward ~70°, flat back (the figure shows the arm path)","Lightest weight you can make; arms out wide, soft elbows","Squeeze between the shoulder blades, no swinging"]},
  {day:7,name:"One-arm DB Row",sets:"2–3 × 12–15",rest:"Break 2 · Tue · stop with 5+ reps left",muscle:"Lats · mid-back",view:"side",equip:"dumbbell",oneHand:true,twoArm:false,search:"One Arm Dumbbell Row",
    a:{sh:6,el:4,tl:70,hip:0,kn:0}, b:{sh:-24,el:-30,tl:70,hip:0,kn:0},
-   cues:["About 8–10kg, left arm first","Free hand on the desk or a chair, flat back","Pull the elbow to the hip, pause, lower slowly"]},
+   cues:["About 9kg, left arm first","Free hand on the desk or a chair, flat back","Pull the elbow to the hip, pause, lower slowly"]},
  {day:7,name:"Neck Isometric Holds",sets:"2–3 × 10–15 sec, each direction",rest:"Break 2 · Tue & Thu · half effort only",muscle:"Neck (front, back, sides)",view:"side",equip:"none",oneHand:true,twoArm:false,search:"Neck Isometric Exercises",
    a:{sh:95,el:150}, b:{sh:97,el:154},
    cues:["Palm on forehead, then back of head, then each side","Push with the neck at about half effort; head stays still","Isometrics only for the first few weeks; stop if anything hurts"]},
  {day:7,name:"Side-lying External Rotation",sets:"2 × 15",rest:"Break 2 · Wed · very light",muscle:"Rotator cuff",view:"front",equip:"dumbbell",oneHand:true,twoArm:false,search:"Side Lying Dumbbell External Rotation",
    a:{sh:8,el:-70}, b:{sh:8,el:80},
-   cues:["Lie on your side, towel under the top elbow","Elbow pinned to your side, rotate the forearm up","Slow, no momentum; bar only or the lightest load"]},
+   cues:["Lie on your side, towel under the top elbow","Elbow pinned to your side, rotate the forearm up","Slow, no momentum; bar only (~1kg) or the lightest load"]},
  {day:7,name:"Wrist Curl",sets:"2 × 15–20",rest:"Break 2 · Fri · light",muscle:"Forearms · grip",view:"side",equip:"dumbbell",oneHand:true,twoArm:false,search:"Seated Dumbbell Wrist Curl",
    a:{sh:30,el:85}, b:{sh:30,el:100},
    cues:["Forearm resting on your thigh, wrist past the knee","Only the wrist moves; let it roll down, curl up","Left first, right matches"]},
@@ -493,17 +493,17 @@ const TO_BEAT = {
     "Incline DB Curl@Sun":            {last:"10kg/arm · 2×8; left arm added 2×5 at 5kg", date:"11-08", beat:"10kg/arm · 3×8 with the left arm setting the reps"},
     // Home DBs (work breaks; calibrating from 11-11, weights to be logged as dumbbell totals incl. the bar)
     "One-arm DB Curl@Home": null,
-    "Hammer Curl@Home": null,
+    "Hammer Curl@Home":                 {last:"13kg (~1kg bar + 12kg plates) · 1×8, 1×10, plus 5 extra reps on the left arm", date:"11-11", beat:"16kg (1.5kg added each end) · 8+ clean reps (L 2 · R 1); 13kg left 4+ reps in the tank, so it was too light"},
     "One-arm Overhead Triceps Extension@Home": null,
     "One-arm DB Shoulder Press@Home": null,
     // Home Break 2 (light): targets, not max effort. Progress only by adding reps toward the top of the range,
-    // then the next step up, always stopping with 5+ reps left. Loads are dumbbell totals incl. the ~2kg bar.
-    "Lateral Raise@Light":                 {last:"not started", date:"—", beat:"Target 5kg (bar + 1.5kg each end) · 2×15, building to 3×20"},
-    "Bent-over Rear-delt Fly@Light":       {last:"not started", date:"—", beat:"Target bar only (~2kg) · 2×15, building to 3×20"},
-    "One-arm DB Row@Light":                {last:"not started", date:"—", beat:"Target 10kg (bar + 2.5kg + 1.5kg each end) · 2×12, building to 3×15"},
+    // then the next step up, always stopping with 5+ reps left. Loads are dumbbell totals incl. the ~1kg bar (Allan, 11-11).
+    "Lateral Raise@Light":                 {last:"not started", date:"—", beat:"Target 4kg (bar + 1.5kg each end) · 2×15, building to 3×20"},
+    "Bent-over Rear-delt Fly@Light":       {last:"not started", date:"—", beat:"Target 4kg (bar + 1.5kg each end; bar alone ~1kg is too light) · 2×15, building to 3×20"},
+    "One-arm DB Row@Light":                {last:"not started", date:"—", beat:"Target 9kg (bar + 2.5kg + 1.5kg each end) · 2×12, building to 3×15"},
     "Neck Isometric Holds@Light":          {last:"not started", date:"—", beat:"Target half effort · 2×10 sec each direction, building to 3×15 sec"},
-    "Side-lying External Rotation@Light":  {last:"not started", date:"—", beat:"Target bar only (~2kg) · 2×15"},
-    "Wrist Curl@Light":                    {last:"not started", date:"—", beat:"Target 5kg · 2×15, building to 2×20"},
+    "Side-lying External Rotation@Light":  {last:"not started", date:"—", beat:"Target bar only (~1kg) or 4kg · 2×15"},
+    "Wrist Curl@Light":                    {last:"not started", date:"—", beat:"Target 4kg (bar + 1.5kg each end) · 2×15, building to 2×20"},
   }
 };
 /* A lift that appears on more than one day keys its later copies with a suffix: Day C "@C", Saturday "@Sat", Sunday "@Sun". */
