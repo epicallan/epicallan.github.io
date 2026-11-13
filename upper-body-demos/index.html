@@ -459,8 +459,8 @@ const SUFFIX = {3:"@C",4:"@Sat",5:"@Sun",6:"@Home",7:"@Light"};
    Keys must match the exercise `name` in EX exactly. `from` notes when the number came
    from a different variation (e.g. pre-09-28 5-day split). */
 const TO_BEAT = {
-  updated:"2026-11-11",
-  next:"B", nextDate:"Fri 11-13",
+  updated:"2026-11-13",
+  next:"C", nextDate:"Mon 11-16",  // Fri 11-13 gym skipped for a morning errand (Allan, 11-12); Day B exercises split across the weekend sessions (Sat 11-14 / Sun 11-15), weekday rotation continues with C
   lifts:{
     // Day A — 11-11 Push (Wednesday, Kigali gym)
     "Barbell Bench Press":            {last:"50kg · 5/5/5/6 (only the 6th rep of the last set assisted): 4×5 unassisted hit", date:"11-11", beat:"52.5kg · 4×5"},
@@ -485,7 +485,7 @@ const TO_BEAT = {
     "Rope Pushdown":                  {last:"35kg · 3×10",      date:"09-21", beat:"35kg · 3×12"},
     // Saturday volume (extra, added 10-28) — Sat 10-31
     "Barbell Bench Press@Sat":        {last:"50kg · 7 (7th rep assisted)/5/5, at the Day A weight", date:"11-07", beat:"50kg, earned (Day A hit 4×5 on 11-11): aim 3×6, then 3×8"},
-    "Barbell Back Squat@Sat":         {last:"30kg · 3×5 clean", date:"11-07", beat:"30kg · 3×6, building toward 3×8"},
+    "Barbell Back Squat@Sat":         {last:"30kg · 3×5 clean", date:"11-07", beat:"35kg · 3×5 (Allan's call 11-13: progress to the Day C weight)"},
     "Conventional Deadlift@Sat":      {last:"70kg · 3×5, coached form (struggle on the last rep)", date:"10-31", beat:"70kg · 3×5 clean, then +2.5–5kg"},
     // Sunday optional light pull (extra, added 10-28) — Sun 11-08
     "Lat Pulldown@Sun":               {last:"40kg · 3×10, wide grip", date:"11-08", beat:"Next pin (~45kg) · 3×10"},
@@ -494,16 +494,16 @@ const TO_BEAT = {
     // Home DBs (work breaks; calibrating from 11-11, weights to be logged as dumbbell totals incl. the bar)
     "One-arm DB Curl@Home": null,
     "Hammer Curl@Home":                 {last:"13kg (~1kg bar + 12kg plates) · 1×8, 1×10, plus 5 extra reps on the left arm", date:"11-11", beat:"16kg (1.5kg added each end) · 8+ clean reps (L 2 · R 1); 13kg left 4+ reps in the tank, so it was too light"},
-    "One-arm Overhead Triceps Extension@Home": null,
-    "One-arm DB Shoulder Press@Home": null,
+    "One-arm Overhead Triceps Extension@Home": {last:"7kg · 10/10/8", date:"11-13", beat:"7kg · 3×10, then build to 12 before the next step up"},
+    "One-arm DB Shoulder Press@Home":   {last:"13kg (~1kg bar + 12kg plates) · 1×9, 1×8 (2 sets; which arm did which not reported; plan is L 2 · R 1)", date:"11-12", beat:"13kg · L 2 · R 1 × 10, then build to 12 before the next step up"},
     // Home Break 2 (light): targets, not max effort. Progress only by adding reps toward the top of the range,
     // then the next step up, always stopping with 5+ reps left. Loads are dumbbell totals incl. the ~1kg bar (Allan, 11-11).
-    "Lateral Raise@Light":                 {last:"not started", date:"—", beat:"Target 4kg (bar + 1.5kg each end) · 2×15, building to 3×20"},
-    "Bent-over Rear-delt Fly@Light":       {last:"not started", date:"—", beat:"Target 4kg (bar + 1.5kg each end; bar alone ~1kg is too light) · 2×15, building to 3×20"},
-    "One-arm DB Row@Light":                {last:"not started", date:"—", beat:"Target 9kg (bar + 2.5kg + 1.5kg each end) · 2×12, building to 3×15"},
+    "Lateral Raise@Light": {last:"6kg · 1×12", date:"11-13", beat:"6kg · 2×12, building to 3×15"},
+    "Bent-over Rear-delt Fly@Light": {last:"4kg · 10/10/15, then 6kg × 9", date:"11-13", beat:"4kg · 3×15, building to 3×20 (stop with 5+ reps left); 6kg only once 4kg is easy"},
+    "One-arm DB Row@Light": {last:"12kg × 12, then 14kg × 13", date:"11-13", beat:"14kg · 2×13, building to 3×15 (stop with 5+ reps left)"},
     "Neck Isometric Holds@Light":          {last:"not started", date:"—", beat:"Target half effort · 2×10 sec each direction, building to 3×15 sec"},
     "Side-lying External Rotation@Light":  {last:"not started", date:"—", beat:"Target bar only (~1kg) or 4kg · 2×15"},
-    "Wrist Curl@Light":                    {last:"not started", date:"—", beat:"Target 4kg (bar + 1.5kg each end) · 2×15, building to 2×20"},
+    "Wrist Curl@Light": {last:"7kg · 2×10", date:"11-13", beat:"7kg · 2×12, building to 2×15 (stop with 5+ reps left)"},
   }
 };
 /* A lift that appears on more than one day keys its later copies with a suffix: Day C "@C", Saturday "@Sat", Sunday "@Sun". */
