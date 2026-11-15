@@ -126,6 +126,18 @@
     .card.open .cues{display:flex}
     .body{padding:10px}
   }
+  .blocks{margin:18px 0 8px; background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:14px 16px}
+  .blocks h2{font-size:17px; margin:0 0 4px}
+  .blocks .bsub{font-size:13px; color:var(--muted); margin:0 0 10px}
+  .blocks details{border-top:1px solid var(--line); padding:10px 0}
+  .blocks summary{cursor:pointer; font-weight:650; font-size:15px}
+  .blocks summary .tag{font-size:11px; font-weight:600; color:#0e1116; background:var(--good); border-radius:6px; padding:2px 6px; margin-left:6px; vertical-align:middle}
+  .blocks summary .tag.done{background:var(--muted)}
+  .blocks ul{margin:8px 0 0; padding-left:18px; font-size:13.5px; line-height:1.5}
+  .blocks .tw{overflow-x:auto; margin-top:8px}
+  .blocks table{border-collapse:collapse; font-size:13px; min-width:560px; width:100%}
+  .blocks th,.blocks td{border:1px solid var(--line); padding:6px 8px; text-align:left; vertical-align:top}
+  .blocks th{background:var(--panel2); color:var(--muted); font-weight:600}
 </style>
 
 <div class="wrap">
@@ -148,6 +160,55 @@
   <div class="nextup" id="nextup"></div>
 
   <div id="days"></div>
+
+  <section class="blocks" id="blocks">
+    <h2>Program blocks</h2>
+    <p class="bsub">The plan runs in blocks of a few weeks, each reviewed at a Sunday deep-dive before the next one starts.</p>
+
+    <details open>
+      <summary>Block 2 · Mon 11-16 → Sun 12-13 (4 weeks)<span class="tag">current</span></summary>
+      <ul>
+        <li>Fixed week: <b>Mon C · Wed A · Fri B</b>, plus Saturday volume and an optional Sunday light pull. Each weekday = main lift + 3 extras, inside the <b>1-hour cap</b>.</li>
+        <li><b>Squat:</b> heavy Monday 3×5 (starts at <b>40kg</b>; +5kg when all 15 reps are clean), volume Saturday 3×8 at ~85% of Monday's weight.</li>
+        <li><b>Saturday bench:</b> 50kg, earned by Day A hitting 4×5; aim 3×6, then 3×8. A volume day, not a second heavy day.</li>
+        <li><b>Arm boost:</b> overhead triceps extension 2×10–12 with the lateral raise on Day A; hammer curl 2×10–12 with the rear-delt fly on Day B (left arm leads).</li>
+        <li>No lighter week up front. A lighter week comes at the end of the block, or sooner if two sessions in a row stall.</li>
+        <li>Missed weekday? Its exercises move to the weekend sessions; the weekday rotation carries on.</li>
+      </ul>
+      <div class="tw"><table>
+        <tr><th>Day</th><th>Main lift</th><th>Extra 1</th><th>Extra 2</th><th>Extra 3</th></tr>
+        <tr><td>C Legs + arms (Mon)</td><td>Back squat 3×5</td><td>RDL 3×5</td><td>Arnold press 3×10 (superset ↓)</td><td>Barbell curl 3×10</td></tr>
+        <tr><td>A Push (Wed)</td><td>Barbell bench 4×5</td><td>Incline DB press 3×8–10</td><td>Seated DB shoulder press 3×8–10</td><td>Lateral raise 3×12–15 + overhead triceps ext 2×10–12</td></tr>
+        <tr><td>B Pull (Fri)</td><td>Lat pulldown 4×8</td><td>Seated cable row 3×10–12</td><td>DB row 3×10</td><td>Rear-delt fly 3×12–15 + hammer curl 2×10–12</td></tr>
+        <tr><td>Sat volume</td><td>Bench 3×8 (50kg as earned)</td><td>Back squat 3×8 (~85% of Mon)</td><td>Conventional deadlift 3×5 (+5kg when clean)</td><td>—</td></tr>
+        <tr><td>Sun light (optional)</td><td>Lat pulldown 3×10</td><td>Seated cable row 3×10–12</td><td>Incline DB curl 3×10</td><td>Triceps pushdown 3×12</td></tr>
+      </table></div>
+      <ul>
+        <li><b>Progression:</b> main lifts take the smallest jump once every prescribed rep is clean; extras stay at a weight until every set reaches the top of the range.</li>
+        <li><b>Effort:</b> extras may go to failure on the last set; bench, squat, deadlift and RDL stop at the last rep with good form.</li>
+      </ul>
+    </details>
+
+    <details>
+      <summary>Block 1 · 09-17 → 11-15 (8 weeks)<span class="tag done">done</span></summary>
+      <ul>
+        <li>Started as a 5-day split; from 09-28 a 3-day split (A Push · B Pull · C Legs-arms-shoulders) rotating across Mon/Wed/Fri, with swimming on the other days. One activity per day.</li>
+        <li>From 10-04: a <b>1-hour hard cap</b> and rest on a timer (2 min between sets, 3 min between exercises, supersets as pairs).</li>
+        <li>Weekend extras added in late October: Saturday volume (bench, squat, deadlift) and an optional Sunday light pull.</li>
+        <li>Squat form was reset with a coach on 10-26 (back to 20kg) and rebuilt from there.</li>
+      </ul>
+      <div class="tw"><table>
+        <tr><th>Lift</th><th>Start of block</th><th>End of block</th></tr>
+        <tr><td>Barbell bench</td><td>40kg · 3×4 (09-21)</td><td>50kg · 4×5 unassisted (11-11)</td></tr>
+        <tr><td>Incline DB press</td><td>7.5kg/arm · 4×10 (09-25)</td><td>17.5kg/arm · 6/6/7 (11-11)</td></tr>
+        <tr><td>Seated DB shoulder press</td><td>7.5kg/arm · 3×8 (09-21)</td><td>15kg/arm · 6/4 (11-11)</td></tr>
+        <tr><td>Romanian deadlift</td><td>40kg · 3×8 (09-30)</td><td>70kg · 5/5/6 (11-09)</td></tr>
+        <tr><td>Conventional deadlift</td><td>70kg · 3×5, last rep a struggle (10-31)</td><td>70kg · 3×9 (11-14)</td></tr>
+        <tr><td>Back squat (after the form reset)</td><td>20kg · 4×10 coached (10-26)</td><td>35kg · 5/6/9 (11-14)</td></tr>
+        <tr><td>Lat pulldown</td><td>40kg · 4×10 (09-28)</td><td>40kg · 3×10 wide grip (11-08)</td></tr>
+      </table></div>
+    </details>
+  </section>
 
   <footer class="foot">
     <p><b>Progressive overload is the whole game.</b> Each week beat last week — a little more weight or a rep or two on the main lifts. Log it in your WORKOUT.md; if you're not beating last week fairly often, you're not overloading.</p>
@@ -459,7 +520,7 @@ const SUFFIX = {3:"@C",4:"@Sat",5:"@Sun",6:"@Home",7:"@Light"};
    Keys must match the exercise `name` in EX exactly. `from` notes when the number came
    from a different variation (e.g. pre-09-28 5-day split). */
 const TO_BEAT = {
-  updated:"2026-11-14",
+  updated:"2026-11-15",
   next:"C", nextDate:"Mon 11-16",  // Fri 11-13 gym skipped for a morning errand (Allan, 11-12); Day B exercises split across the weekend sessions (Sat 11-14 / Sun 11-15), weekday rotation continues with C
   lifts:{
     // Day A — 11-11 Push (Wednesday, Kigali gym)
@@ -477,20 +538,20 @@ const TO_BEAT = {
     "Barbell Curl":                   {last:"25kg · 2×8", date:"10-05", beat:"25kg · 3×8"},
     "Incline DB Curl (or Hammer Curl)": {last:"8kg/arm · 11/10/9", date:"10-25", beat:"8kg/arm · 3×11, then 10kg/arm"},
     // Day C — 11-09 Legs-arms-shoulders (Monday; lateral raise, curl, pushdown not done, numbers from earlier)
-    "Barbell Back Squat":             {last:"30kg · 7/7/9", date:"11-09", beat:"35kg · 3×5 (Allan's call 11-09: 9 on the last set, so move up)"},
+    "Barbell Back Squat":             {last:"30kg · 7/7/9 (Sat 11-14: 35kg 5/6/9)", date:"11-09", beat:"40kg · 3×5 (Allan's call 11-15, after 35kg 5/6/9 on Saturday)"},
     "Romanian Deadlift":              {last:"70kg · 5/5/6", date:"11-09", beat:"75kg · 3×5"},
     "Arnold Press":                   {last:"12.5kg/arm · 8/8/7; weaker left arm added 2×4 at 7.5kg", date:"11-09", beat:"12.5kg/arm · 3×8, then 3×9"},
     "DB Lateral Raise":               {last:"6kg/arm · 10/9/10 (form failure at 10)", date:"11-02", beat:"6kg/arm · 3×10 clean, then build toward 3×15"},
     "Barbell Curl@C":                 {last:"25kg · 3×9",       date:"10-26", beat:"25kg · 3×10 (then 3×12)"},
     "Rope Pushdown":                  {last:"35kg · 3×10",      date:"09-21", beat:"35kg · 3×12"},
     // Saturday volume (extra, added 10-28) — Sat 10-31
-    "Barbell Bench Press@Sat":        {last:"50kg · 7 (7th rep assisted)/5/5, at the Day A weight", date:"11-07", beat:"50kg, earned (Day A hit 4×5 on 11-11): aim 3×6, then 3×8"},
-    "Barbell Back Squat@Sat":         {last:"30kg · 3×5 clean", date:"11-07", beat:"35kg · 3×5 (Allan's call 11-13: progress to the Day C weight)"},
-    "Conventional Deadlift@Sat":      {last:"70kg · 3×5, coached form (struggle on the last rep)", date:"10-31", beat:"70kg · 3×5 clean, then +2.5–5kg"},
+    "Barbell Bench Press@Sat":        {last:"50kg · 5/6/6 (sore triceps from Friday's home sets)", date:"11-14", beat:"50kg · 3×6, then build to 3×8"},
+    "Barbell Back Squat@Sat":         {last:"35kg · 5/6/9", date:"11-14", beat:"35kg · 3×8 (volume day, about 85% of Monday's 40kg)"},
+    "Conventional Deadlift@Sat":      {last:"70kg · 3×9 (well past the prescribed 3×5)", date:"11-14", beat:"75kg · 3×5"},
     // Sunday optional light pull (extra, added 10-28) — Sun 11-08
-    "Lat Pulldown@Sun":               {last:"40kg · 3×10, wide grip", date:"11-08", beat:"Next pin (~45kg) · 3×10"},
-    "Seated Cable Row@Sun":           {last:"35kg · 3×10", date:"11-08", beat:"Next pin (40kg) · 3×10"},
-    "Incline DB Curl@Sun":            {last:"10kg/arm · 2×8; left arm added 2×5 at 5kg", date:"11-08", beat:"10kg/arm · 3×8 with the left arm setting the reps"},
+    "Lat Pulldown@Sun":               {last:"45kg · 3×6, wide grip", date:"11-15", beat:"45kg · 3×7, building to 3×10"},
+    "Seated Cable Row@Sun":           {last:"40kg · 3×8", date:"11-15", beat:"40kg · 3×9, building to 3×10"},
+    "Incline DB Curl@Sun":            {last:"10kg/arm · 3×6; left arm added 3×4 at 7.5kg (pre-fatigued: curls in the warm-up)", date:"11-15", beat:"10kg/arm · 3×7, no curls in the warm-up"},
     // Home DBs (work breaks; calibrating from 11-11, weights to be logged as dumbbell totals incl. the bar)
     "One-arm DB Curl@Home":             {last:"14kg · 6, 5", date:"11-13", beat:"14kg · 2×7, then build to 2×8+ before the next step up"},
     "Hammer Curl@Home":                 {last:"13kg (~1kg bar + 12kg plates) · 1×8, 1×10, plus 5 extra reps on the left arm", date:"11-11", beat:"16kg (1.5kg added each end) · 8+ clean reps (L 2 · R 1); 13kg left 4+ reps in the tank, so it was too light"},
