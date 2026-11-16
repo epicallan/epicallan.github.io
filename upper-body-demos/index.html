@@ -177,7 +177,7 @@
       </ul>
       <div class="tw"><table>
         <tr><th>Day</th><th>Main lift</th><th>Extra 1</th><th>Extra 2</th><th>Extra 3</th></tr>
-        <tr><td>C Legs + arms (Mon)</td><td>Back squat 3×5</td><td>RDL 3×5</td><td>Arnold press 3×10 (superset ↓)</td><td>Barbell curl 3×10</td></tr>
+        <tr><td>C Legs + arms (Mon)</td><td>Back squat 3×5</td><td>RDL 3×5</td><td>Arnold press 3×10 (superset ↓)</td><td>DB preacher curl 3×10 each arm (from 11-18)</td></tr>
         <tr><td>A Push (Wed)</td><td>Barbell bench 4×5</td><td>Incline DB press 3×8–10</td><td>Seated DB shoulder press 3×8–10</td><td>Lateral raise 3×12–15 + overhead triceps ext 2×10–12</td></tr>
         <tr><td>B Pull (Fri)</td><td>Lat pulldown 4×8</td><td>Seated cable row 3×10–12</td><td>DB row 3×10</td><td>Rear-delt fly 3×12–15 + hammer curl 2×10–12</td></tr>
         <tr><td>Sat volume</td><td>Bench 3×8 (50kg as earned)</td><td>Back squat 3×8 (~85% of Mon)</td><td>Conventional deadlift 3×5 (+5kg when clean)</td><td>—</td></tr>
@@ -432,9 +432,9 @@ const EX = [
  {day:3,name:"DB Lateral Raise",sets:"3 × 15",rest:"2 min after each pair · 3 min, then next exercise",muscle:"Side delts",view:"front",equip:"dumbbell",
    a:{sh:6,el:8}, b:{sh:86,el:88},
    cues:["Lead with the elbows, soft bend in the arm","Raise to shoulder height — no higher","Strict — no leaning or swinging to cheat it up"]},
- {day:3,name:"Barbell Curl",sets:"3 × 12",rest:"superset ↓ no rest, go straight into the next one",muscle:"Biceps",view:"front",equip:"barbell",
+ {day:3,name:"DB Preacher Curl",sets:"3 × 10 each arm",rest:"superset ↓ no rest, go straight into the next one",muscle:"Biceps (short head)",view:"front",equip:"dumbbell",
    a:{sh:10,el:14}, b:{sh:14,el:164},
-   cues:["Elbows pinned, no swing","Higher reps today — keep it strict","Full stretch at the bottom each rep"]},
+   cues:["One arm at a time, upper arm flat on the pad (no preacher bench: drape it over an incline bench's backrest)","Left arm first; the right matches its reps","Lower slowly to a near-straight arm, no bounce at the bottom (fallback: seated concentration curl)"]},
  {day:3,name:"Rope Pushdown",sets:"3 × 15",rest:"2 min after each pair · then done",muscle:"Triceps",view:"front",equip:"cable-high",
    a:{sh:12,el:82}, b:{sh:12,el:6},
    cues:["Elbows locked at your sides","Spread the rope at the bottom","Finish the day with a strong squeeze"]},
@@ -520,14 +520,14 @@ const SUFFIX = {3:"@C",4:"@Sat",5:"@Sun",6:"@Home",7:"@Light"};
    Keys must match the exercise `name` in EX exactly. `from` notes when the number came
    from a different variation (e.g. pre-09-28 5-day split). */
 const TO_BEAT = {
-  updated:"2026-11-15",
-  next:"C", nextDate:"Mon 11-16",  // Fri 11-13 gym skipped for a morning errand (Allan, 11-12); Day B exercises split across the weekend sessions (Sat 11-14 / Sun 11-15), weekday rotation continues with C
+  updated:"2026-11-16",
+  next:"C", nextDate:"Wed 11-18",  // Mon 11-16: Day A done instead of C (legs still sore from Saturday; Allan), so C moves to Wed, then B Fri. Earlier: Fri 11-13 gym skipped for a morning errand (Allan, 11-12); Day B exercises split across the weekend sessions (Sat 11-14 / Sun 11-15), weekday rotation continues with C
   lifts:{
-    // Day A — 11-11 Push (Wednesday, Kigali gym)
-    "Barbell Bench Press":            {last:"50kg · 5/5/5/6 (only the 6th rep of the last set assisted): 4×5 unassisted hit", date:"11-11", beat:"52.5kg · 4×5"},
-    "Incline DB Press":               {last:"15kg/arm × 9, then 17.5kg/arm · 6/6/7; weaker left arm added 7.5kg × 9 and 15kg × 5 (no 16kg in Kigali)", date:"11-11", beat:"17.5kg/arm · 3×7, then build toward 3×8-10"},
-    "Seated DB Shoulder Press":       {last:"15kg/arm · 6/4 (2 sets); weaker left arm added 7.5kg × 5", date:"11-11", beat:"15kg/arm · 3×6"},
-    "Lateral Raise":                  {last:"5kg/arm · 3×12 (no 6kg in the Kigali gym)", date:"11-11", beat:"5kg/arm · 3×13, building to 3×15 (or the next pair up if the gym has one)"},
+    // Day A — 11-16 Push (Monday, swapped in for Day C: sore legs)
+    "Barbell Bench Press":            {last:"55kg · 4/4/4/5 (minor assist on the 5th rep of the last set; jumped past the planned 52.5kg)", date:"11-16", beat:"55kg · 4×5 unassisted"},
+    "Incline DB Press":               {last:"17.5kg/arm · 7/7/8 (left arm felt slightly stronger than right)", date:"11-16", beat:"17.5kg/arm · 3×8, building toward 3×10"},
+    "Seated DB Shoulder Press":       {last:"15kg/arm · 6/5/5", date:"11-16", beat:"15kg/arm · 3×6, then 3×7"},
+    "Lateral Raise":                  {last:"5kg/arm · 1×12 (one set only; the hour ran out). Last full: 3×12 on 11-11", date:"11-16", beat:"5kg/arm · 3×13, building to 3×15 (or the next pair up if the gym has one)"},
     "Triceps Pushdown":               {last:"12.5kg · 12/12/13 (same machine, corrected form, failure on last rep: new form baseline)", date:"10-24", beat:"12.5kg · 3×13 clean, then the next pin"},
     "Assisted Dips (or Overhead Extension)": null, // NOTE 10-17: no assisted-dip machine at the Uganda gym; skipped on 10-17. Last numbers were 55kg assist · 3×6 (10-09). Use Overhead Extension here until back home.
     // Day B — 10-30 Pull (Friday)
@@ -542,7 +542,7 @@ const TO_BEAT = {
     "Romanian Deadlift":              {last:"70kg · 5/5/6", date:"11-09", beat:"75kg · 3×5"},
     "Arnold Press":                   {last:"12.5kg/arm · 8/8/7; weaker left arm added 2×4 at 7.5kg", date:"11-09", beat:"12.5kg/arm · 3×8, then 3×9"},
     "DB Lateral Raise":               {last:"6kg/arm · 10/9/10 (form failure at 10)", date:"11-02", beat:"6kg/arm · 3×10 clean, then build toward 3×15"},
-    "Barbell Curl@C":                 {last:"25kg · 3×9",       date:"10-26", beat:"25kg · 3×10 (then 3×12)"},
+    "DB Preacher Curl":               {last:"not started (replaces the Day C barbell curl from 11-18; last barbell curl 25kg · 3×9 on 10-26)", date:"—", beat:"First session sets the baseline: a weight the left arm can do for 10 clean reps, 3 sets each arm"},
     "Rope Pushdown":                  {last:"35kg · 3×10",      date:"09-21", beat:"35kg · 3×12"},
     // Saturday volume (extra, added 10-28) — Sat 10-31
     "Barbell Bench Press@Sat":        {last:"50kg · 5/6/6 (sore triceps from Friday's home sets)", date:"11-14", beat:"50kg · 3×6, then build to 3×8"},
